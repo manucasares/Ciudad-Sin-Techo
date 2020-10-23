@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+
+// Clases Bootstrap-Like
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-5 {
+    margin-top: 25px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 25px;
+}
+
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
