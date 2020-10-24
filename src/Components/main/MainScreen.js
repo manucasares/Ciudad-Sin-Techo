@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+
+import { Navbar } from './Navbar';
+import { Header } from './Header';
+import { Redes } from './Redes';
+import { Contacto } from './Contacto';
+import { Articulos } from './Articulos';
+
 
 export const MainScreen = () => {
     return (
-        <div>
-            <h1>mainscreen</h1>
-        </div>
+        <>
+            <Navbar />
+            <Header />
+            <Redes />
+            <Articulos/>
+            <Contacto />
+        </>
     )
 }

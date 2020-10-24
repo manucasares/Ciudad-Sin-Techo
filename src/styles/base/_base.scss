@@ -1,17 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
-* {
+*, *::after, *::before {
     box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    width: 100vw;
     height: 100%;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba($color: red, $alpha: .1);
 }
 
+html, body, p {
+    margin: 0;
+}
+
+a {
+    color: white;
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+}
 
 // Clases Bootstrap-Like
+
+.container {
+    width: $width;
+    max-width: $max-width;
+    margin: 0 auto;
+}
 
 .mt-1 {
     margin-top: 10px;
@@ -35,6 +55,22 @@ html, body {
     align-items: center;
 }
 
+.d-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.d-flex-wrap {
+    flex-wrap: wrap;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

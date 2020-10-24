@@ -1,0 +1,68 @@
+
+
+.contacto {
+    background: url('../../assets/gravel.png');
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.contacto .contacto-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.contacto .contacto-container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contacto .contacto-container .titulo {
+    text-align: center;
+    color: $primary;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+
+.contacto .contacto-container form input{
+    width: 49%;
+}
+
+.contacto .contacto-container form textarea{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contacto .contacto-container form button{
+    margin: 0 auto;
+    padding: 10px 40px;
+    background-color: $primary;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: inherit;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color: $primary, $amount: 10);
+    }
+}
+
+
+@media screen and (max-width: 800px){
+
+    .contacto .contacto-container {
+        width: 80%;
+    }
+    
+
+    .contacto .contacto-container form input:first-child,
+    .contacto .contacto-container form input:nth-child(2){
+        width: 100%;
+
+    }
+
+}
+
+

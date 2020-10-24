@@ -1,9 +1,19 @@
 
 
 @import './base/normalize.css';
-@import './base/base';
 @import './base/settings';
+@import './base/base';
+
+
 
 // Components
+
+@import './components/inputs';
+
+@import './components/navbar';
+@import './components/redes';
+@import './components/articulos';
+@import './components/contacto';
+
 
 
