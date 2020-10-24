@@ -1,0 +1,52 @@
+
+
+.article {
+    .titulo {
+        font-weight: 600;
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .fecha-autor {
+        // width: 10vw;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin: 2rem 0;
+    }
+
+    .subtitulo {
+        line-height: 30px;
+        text-align: justify;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    
+    img {
+        height: 400px;
+        object-fit: cover;
+        object-position: 50% 50%;
+        margin: 2.5rem 0;
+    }
+
+    .main-text {
+        line-height: 29px;
+        text-align: justify;
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .article {
+
+        .titulo {
+            text-align: center;
+            font-size: 1.7rem;
+
+        }
+
+        .fecha-autor {
+            width: 100%;
+        }
+    }
+}
+

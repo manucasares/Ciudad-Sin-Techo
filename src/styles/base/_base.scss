@@ -9,7 +9,7 @@ html, body {
     height: 100%;
     overflow-x: hidden;
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba($color: red, $alpha: .1);
+    background-color: $grey-background;
 }
 
 html, body, p {
@@ -71,15 +71,13 @@ img {
 
 .container {
     width: $width;
-    max-width: $min-width;
+    max-width: $max-width;
     margin: 0 auto;
 }
 
-.t-center{
+.t-center {
     text-align: center;
 }
-
-
 
 .img {
     width: 100%;

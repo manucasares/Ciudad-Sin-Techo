@@ -2,87 +2,94 @@ import React from 'react'
 
 export const Articulos = () => {
     return (
-        <div className="articulos__container">
+        <div className="articulos__container container">
 
-            <div className="container">
+
 
                 <h2 className="articulos__titulo">Blog de Ciudad Sin Techo</h2>
                 
+                {/* BUSCADOR */}
                 <div className="articulos__buscador mb-5 mt-1">
-                    <input className="input" placeholder="Buscar en el blog..." />
-                    <i class="fas fa-search pointer"></i>
+                    <input
+                        className="input"
+                        placeholder="Buscar en el blog..."
+                    />
+                    <i className="fas fa-search pointer"></i>
                 </div>
 
                 <div className="d-flex-wrap d-flex-between">
 
                     <div className="articulos__articulo mb-5 pointer">
 
-                        <img className="img" src={require('../../assets/foto1.jpg')} />
+                        <img
+                            className="img"
+                            src={require('../../assets/foto1.jpg')}
+                        />
 
                         <div className="articulos__text-container">
 
-                            <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
+                            <p className="articulos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
 
-                            <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
+                            <p className="articulos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
 
                         </div>
 
                     </div>
                     
                     
-                     <div className="articulos__articulo mb-5 pointer">
+                    <div className="articulos__articulo mb-5 pointer">
 
-                        <img className="img" src={require('../../assets/foto2.jpg')} />
+                    <img className="img" src={require('../../assets/foto2.jpg')} />
 
-                        <div className="articulos__text-container">
+                    <div className="articulos__text-container">
 
-                            <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
+                        <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
 
-                            <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
-
-                        </div>
+                        <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
 
                     </div>
-                     <div className="articulos__articulo mb-5 pointer">
 
-                        <img className="img" src={require('../../assets/foto3.jpg')} />
+                </div>
+                    <div className="articulos__articulo mb-5 pointer">
 
-                        <div className="articulos__text-container">
+                    <img className="img" src={require('../../assets/foto3.jpg')} />
 
-                            <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
+                    <div className="articulos__text-container">
 
-                            <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
+                        <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
 
-                        </div>
-
-                    </div>
-                     <div className="articulos__articulo mb-5 pointer">
-
-                        <img className="img" src={require('../../assets/foto4.jpg')} />
-
-                        <div className="articulos__text-container">
-
-                            <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
-
-                            <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
-
-                        </div>
+                        <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
 
                     </div>
-                     <div className="articulos__articulo mb-5 pointer">
 
-                        <img className="img" src={require('../../assets/foto5.jpg')} />
+                </div>
+                    <div className="articulos__articulo mb-5 pointer">
 
-                        <div className="articulos__text-container">
+                    <img className="img" src={require('../../assets/foto4.jpg')} />
 
-                            <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
+                    <div className="articulos__text-container">
 
-                            <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
+                        <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
 
-                        </div>
+                        <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
 
                     </div>
-                     <div className="articulos__articulo mb-5 pointer">
+
+                </div>
+                    <div className="articulos__articulo mb-5 pointer">
+
+                    <img className="img" src={require('../../assets/foto5.jpg')} />
+
+                    <div className="articulos__text-container">
+
+                        <p className="arituclos__articulo-titulo mb-1"> Lorem ipsum dolor sit amet </p>
+
+                        <p className="arituclos__articulo-descripcion"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium. </p>
+
+                    </div>
+
+                </div>
+                    <div className="articulos__articulo mb-5 pointer">
 
                         <img className="img" src={require('../../assets/foto6.jpg')} />
 
@@ -96,13 +103,7 @@ export const Articulos = () => {
 
                     </div>
                 
-                
                 </div>
-
-            </div>
-
-            
-
         </div>
     )
 }
