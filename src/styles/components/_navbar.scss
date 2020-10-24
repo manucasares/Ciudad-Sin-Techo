@@ -30,9 +30,6 @@
     margin: 0 1.5rem;
     cursor: pointer;
     transition: $transition;
-    &:hover {
-        transform: scale(1.05);
-    }
 }
 
 .navbar .navbar-container .nav-items p::after {
