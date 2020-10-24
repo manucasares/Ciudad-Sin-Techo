@@ -1,0 +1,106 @@
+
+.navbar {
+    width: 100%;
+    background-color: white;            
+}
+
+.navbar .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.navbar .navbar-container .logo-bars img {
+    width: 70px;
+    padding: 5px 0;
+}
+
+.navbar .navbar-container .nav-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar .navbar-container .nav-items p {
+    position: relative;
+    font-size: 1.2rem;
+    margin: 0 1.5rem;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.navbar .navbar-container .nav-items p::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: -40%;
+    transform: translateX(-50%) scaleX(0);
+    width: 50%;
+    background-color: rgba($color: #000000, $alpha: .55);
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.navbar .navbar-container .nav-items p:hover::after {
+        //acá aprendi que si no ponía el translateX también se remplazaba y
+        //se borraba esa propiedad (translateX)
+        //asi que tenia que ponerlo si o si
+    transform: translateX(-50%) scaleX(1);
+    visibility: visible;
+}
+
+.fa-bars {
+    display: none;
+}
+
+// SHOW //
+
+.show {
+    height: 176px !important;
+}
+
+@media screen and (max-width: 800px){
+
+    .navbar {
+        .navbar-container {
+            padding: 0;
+        }
+
+        .logo-bars {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 50px;
+            .fa-bars {
+                font-size: 1.3rem;
+                display: inline;
+            }
+        }
+        .nav-items {
+            width: 100%;
+            justify-content: flex-start !important;
+            flex-direction: column;
+            background-color: #17364f;
+            height: 0;
+            overflow: hidden;
+            transition: height .3s ease;
+            p {
+                font-size: 1rem !important;
+                padding: 13px 0;
+                text-align: center;
+                color: white;
+            }
+            p:hover::after {
+                content: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.articulos__container {
+    background-color: $grey-background;
+    padding: 50px 0;
+}
+
+.articulos__titulo {
+    color: darken($color: $primary, $amount: 25);
+    font-size:35px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.articulos__buscador {
+    position: relative;
+    
+
+    input {
+        width: 100%;
+        padding-left: 40px;
+    }
+
+    .fa-search {
+        position: absolute;
+        left: 15px;
+        top: 18px;
+        transition: $transition;
+        //centrarlo verticalmente, preguntar a manu
+        
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.articulos__articulo {
+    box-shadow: $shadow;
+    width: 32%;
+
+    
+    img {
+        height: 280px;
+    }
+    
+    &:hover {
+
+        img{
+            opacity: .8;
+        }
+    }
+}
+
+.articulos__text-container {
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 15px;
+}
+
+.arituclos__articulo-titulo {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.arituclos__articulo-descripcion {
+    color: $grey-text;
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
