@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
 
@@ -8,15 +9,16 @@ export const Navbar = () => {
         nav_responsive.current.classList.toggle('show');
     }
 
-
     return (
         <div className="navbar">
             <nav className="navbar-container">
                 <div className="logo-bars">
-                    <img
-                        src={require(`../../assets/logo.png`)}
-                        alt="logo ciudad sin techo"
-                    />
+                    <Link to="/">
+                        <img
+                            src={require(`../../assets/logo.png`)}
+                            alt="logo ciudad sin techo"
+                        />
+                    </Link>
         
                     <i 
                         onClick={handleNavbar}

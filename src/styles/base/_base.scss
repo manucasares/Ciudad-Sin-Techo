@@ -72,15 +72,13 @@ img {
 
 .container {
     width: $width;
-    max-width: $min-width;
+    max-width: $max-width;
     margin: 0 auto;
 }
 
-.t-center{
+.t-center {
     text-align: center;
 }
-
-
 
 .img {
     width: 100%;

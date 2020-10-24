@@ -36,14 +36,11 @@
 .articulos__articulo {
     box-shadow: $shadow;
     width: 32%;
-
-    
     img {
         height: 280px;
+        transition: all .3s ease;
     }
-    
     &:hover {
-
         img{
             opacity: .8;
         }
@@ -56,12 +53,12 @@
     padding: 20px 15px;
 }
 
-.arituclos__articulo-titulo {
+.articulos__articulo-titulo {
     font-size: 1.4em;
     font-weight: 600;
 }
 
-.arituclos__articulo-descripcion {
+.articulos__articulo-descripcion {
     color: $grey-text;
     font-size: 0.9em;
     text-transform: capitalize;
