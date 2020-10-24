@@ -1,0 +1,25 @@
+.galeria__container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+
+    img{
+        height: 50vh;
+        object-fit: cover;
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .galeria__container img{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .galeria__container {
+        display: none;
+    }
+}

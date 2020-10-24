@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 *, *::after, *::before {
@@ -9,7 +10,7 @@ html, body {
     height: 100%;
     overflow-x: hidden;
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba($color: red, $alpha: .1);
+    background-color: $grey-background;
 }
 
 html, body, p {

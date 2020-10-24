@@ -1,3 +1,4 @@
+
 .articulos__container {
     background-color: $grey-background;
     padding: 50px 0;
@@ -22,9 +23,9 @@
     .fa-search {
         position: absolute;
         left: 15px;
-        top: 18px;
+        top: 50%;
+        transform: translateY(-50%);
         transition: $transition;
-        //centrarlo verticalmente, preguntar a manu
         
         &:hover {
             color: $primary;
@@ -64,4 +65,48 @@
     color: $grey-text;
     font-size: 0.9em;
     text-transform: capitalize;
+}
+
+.articulos__paginacion-container {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+}
+
+.articulos__paginacion {
+    border: 1px solid rgba($color: $grey-text, $alpha: .1);
+    background-color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 10px;
+
+    transition: $transition;
+
+    &:hover {
+        color: $primary;
+        background-color: rgba($color: $grey-text, $alpha: .1);
+    }
+
+    .activo {
+        color: $primary;
+        background-color: rgba($color: $grey-text, $alpha: .1);
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .articulos__articulo {
+        width: 49%;
+    }
+
+    .articulos__paginacion-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .articulos__articulo {
+        width: 100%;
+    }
 }

@@ -22,5 +22,12 @@
     cursor: pointer;
 }
 
+.redes i {
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.15);;
+    }
+}
 
 
