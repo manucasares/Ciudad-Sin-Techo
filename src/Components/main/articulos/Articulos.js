@@ -49,31 +49,33 @@ export const Articulos = () => {
 
                 <Buscador />
 
+                ARTICULOS
                 <div className="d-flex-wrap d-flex-between">
 
-                    {articulos.map(({img,titulo, descripcion}) => (
+                    {
+                        articulos.map(({img,titulo, descripcion}) => (
                         
-                        <div className="articulos__articulo mb-5 pointer">
+                            <div className="articulos__articulo mb-5 pointer">
 
-                            <img
-                                className="img"
-                                src={require(`../../../assets/${img}`)}
-                            />
+                                <img
+                                    className="img"
+                                    src={require(`../../../assets/${img}`)}
+                                />
 
-                            <div className="articulos__text-container">
+                                <div className="articulos__text-container">
 
-                                <p className="arituclos__articulo-titulo mb-1">
-                                    {titulo}
-                                </p>
+                                    <p className="arituclos__articulo-titulo mb-1">
+                                        {titulo}
+                                    </p>
 
-                                <p className="arituclos__articulo-descripcion">
-                                    {descripcion}
-                                </p>
+                                    <p className="arituclos__articulo-descripcion">
+                                        {descripcion}
+                                    </p>
 
+                                </div>
                             </div>
-                        </div>
-
-                    ))}
+                        ))
+                    }
 
                    
                 </div>
