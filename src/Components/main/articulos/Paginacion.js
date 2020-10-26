@@ -1,33 +1,56 @@
 import React from 'react'
 
-export const Paginacion = () => {
+export const Paginacion = ({totalPages, currentPage, setCurrentPage}) => {
 
+    const handlePrev = () => {
+        if(currentPage === 1){
+            return;
+        }
+        setCurrentPage( p => p - 1);
+    }
 
-    const arr = [1, 2, 3, 4, 5 ,6]
+    const handleNext = () => {
+        if(currentPage === totalPages.length){
+            return;
+        }
+        setCurrentPage( p => p + 1);
+    }
+
 
     return (
         <div className="articulos__paginacion-container">
-
-            <div className="articulos__paginacion">
+            
+            {/* PREV */}
+            <div
+                className="articulos__paginacion"
+                onClick={handlePrev}
+            >
                 <i className="fas fa-caret-left"></i>
             </div>
 
+            {/* PAGINAS */}
             {
-                arr.map( e => (
+                totalPages.map( page => (
                     <div 
-                        className="articulos__paginacion"
-                        key={e}
+                    className={
+                        (page + 1 === currentPage)
+                            ? "articulos__paginacion active"
+                            : "articulos__paginacion"
+                    }
+                        key={page + 1}
                     >
-                        <p> {e} </p>
+                        <p> {page + 1} </p>
                     </div>
                 ))
             }
 
-            <div className="articulos__paginacion">
+            {/* NEXT */}
+            <div
+                className="articulos__paginacion"
+                onClick={handleNext}
+            >
                 <i className="fas fa-caret-right"></i>
             </div>
-
-
 
         </div>
     )

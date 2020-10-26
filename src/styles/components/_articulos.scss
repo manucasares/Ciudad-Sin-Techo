@@ -13,8 +13,6 @@
 
 .articulos__buscador {
     position: relative;
-    
-
     input {
         width: 100%;
         padding-left: 40px;
@@ -36,6 +34,7 @@
 .articulos__articulo {
     box-shadow: $shadow;
     width: 32%;
+    margin: .8rem .65%;
     img {
         height: 280px;
         transition: all .3s ease;
@@ -66,10 +65,15 @@
 }
 
 .articulos__paginacion-container {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: flex-start;
+    margin-top: 1rem;
     width: 60%;
+}
+
+.articulos__not-results-found {
+    margin-bottom: 2.5rem;
 }
 
 .articulos__paginacion {
@@ -86,16 +90,17 @@
         background-color: rgba($color: $grey-text, $alpha: .1);
     }
 
-    .activo {
+    &.active {
         color: $primary;
         background-color: rgba($color: $grey-text, $alpha: .1);
     }
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .articulos__articulo {
         width: 49%;
+        margin: .8rem .5%;
     }
 
     .articulos__paginacion-container {
@@ -103,7 +108,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     .articulos__articulo {
         width: 100%;
     }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { getArticleByTitle } from '../../selectors/getArticleByTitle';
 import { transformToString } from '../helper/transformStrings';
 
@@ -8,10 +8,13 @@ export const ArticleScreen = () => {
     
     const {title} = useParams()
 
-    console.log(title);
-    
     const art = getArticleByTitle(transformToString(title));
     
+    if( !art ) {
+        console.log('asd');
+        return <Redirect to="/" />
+    }
+
     const {fecha, autor, img, titulo, subtitulo, body} = art;
 
 
