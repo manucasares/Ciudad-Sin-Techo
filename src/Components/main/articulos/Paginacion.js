@@ -9,7 +9,7 @@ export const Paginacion = () => {
         <div className="articulos__paginacion-container">
 
             <div className="articulos__paginacion">
-                <i class="fas fa-caret-left"></i>
+                <i className="fas fa-caret-left"></i>
             </div>
 
             {
@@ -21,7 +21,7 @@ export const Paginacion = () => {
             }
 
             <div className="articulos__paginacion">
-                <i class="fas fa-caret-right"></i>
+                <i className="fas fa-caret-right"></i>
             </div>
 
 

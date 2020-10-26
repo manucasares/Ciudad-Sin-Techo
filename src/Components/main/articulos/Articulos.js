@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
+
 
 export const Articulos = () => {
     const articulos = [
@@ -49,13 +52,16 @@ export const Articulos = () => {
 
                 <Buscador />
 
-                ARTICULOS
+                {/* ARTICULOS */}
                 <div className="d-flex-wrap d-flex-between">
 
                     {
                         articulos.map(({img,titulo, descripcion}) => (
                         
-                            <div className="articulos__articulo mb-5 pointer">
+                            <Link
+                                to="/article"
+                                className="articulos__articulo mb-5 pointer"
+                            >
 
                                 <img
                                     className="img"
@@ -64,16 +70,16 @@ export const Articulos = () => {
 
                                 <div className="articulos__text-container">
 
-                                    <p className="arituclos__articulo-titulo mb-1">
+                                    <p className="articulos__articulo-titulo mb-1">
                                         {titulo}
                                     </p>
 
-                                    <p className="arituclos__articulo-descripcion">
+                                    <p className="articulos__articulo-descripcion">
                                         {descripcion}
                                     </p>
 
                                 </div>
-                            </div>
+                            </Link>
                         ))
                     }
 
