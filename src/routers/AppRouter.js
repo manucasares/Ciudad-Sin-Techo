@@ -14,7 +14,11 @@ export const AppRouter = () => {
                 <Navbar />
 
                 <Switch>
-                    <Route exact path="/article/" component={ArticleScreen} />
+                    <Route 
+                        exact 
+                        path="/article/:title" 
+                        component={ArticleScreen}  
+                    />
 
                     <Route path="/" component={MainScreen} />
 

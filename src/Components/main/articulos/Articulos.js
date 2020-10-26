@@ -1,49 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { articulos } from "../../../data/articulos";
+import { transformToUrl } from "../../helper/transformStrings";
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
 
 
 export const Articulos = () => {
-    const articulos = [
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto1.jpg",
-        },
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto2.jpg",
-        },
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto3.jpg",
-        },
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto4.jpg",
-        },
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto5.jpg",
-        },
-        {
-            titulo: "Lorem ipsum dolor sit amet",
-            descripcion:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
-            img: "foto6.jpg",
-        },
-    ];
+  
+
 
     return (
         <div className="articulos__container">
@@ -56,16 +21,25 @@ export const Articulos = () => {
                 <div className="d-flex-wrap d-flex-between">
 
                     {
-                        articulos.map(({img,titulo, descripcion}) => (
+                        articulos.map(({img,titulo, subtitulo, id}) => (
                         
                             <Link
-                                to="/article"
+                                to={{
+                                    pathname: `/article/${transformToUrl(titulo)}`,
+                                    state : {
+                                        id
+                                    }
+                                }}
                                 className="articulos__articulo mb-5 pointer"
+                                key={id}
+                                id={id}
+                                
                             >
 
                                 <img
                                     className="img"
                                     src={require(`../../../assets/${img}`)}
+                                    alt={img}
                                 />
 
                                 <div className="articulos__text-container">
@@ -75,7 +49,7 @@ export const Articulos = () => {
                                     </p>
 
                                     <p className="articulos__articulo-descripcion">
-                                        {descripcion}
+                                        {subtitulo}
                                     </p>
 
                                 </div>

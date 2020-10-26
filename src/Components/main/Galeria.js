@@ -18,6 +18,7 @@ export const Galeria = () => {
                 <img
                     src={require(`../../assets/${img}.jpg`)}
                     alt={img}
+                    key={img}
                 />
             ))}
         </div>
