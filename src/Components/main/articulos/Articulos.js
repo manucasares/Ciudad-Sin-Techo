@@ -62,11 +62,11 @@ export const Articulos = () => {
 
                             <div className="articulos__text-container">
 
-                                <p className="arituclos__articulo-titulo mb-1">
+                                <p className="articulos__articulo-titulo mb-1">
                                     {titulo}
                                 </p>
 
-                                <p className="arituclos__articulo-descripcion">
+                                <p className="articulos__articulo-descripcion">
                                     {descripcion}
                                 </p>
 
