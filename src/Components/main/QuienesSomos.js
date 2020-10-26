@@ -1,15 +1,43 @@
 import React from 'react'
 
 export const QuienesSomos = () => {
+
+
+    //efecto parallax fallido
+    // const [offsetY, setOffsetY] = useState(0);
+
+    // const handleScroll = () => {
+    //     console.log(window);
+    //     setOffsetY(window.pageYOffset);
+    // }
+
+    // useEffect(() => {
+
+    //     window.addEventListener("scroll", handleScroll);
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     }
+    // }, [])
+
+
     return (
-        <div className="quienes-somos">
+        <div
+            className="quienes-somos"
+        >
             <div className="container">
 
                 <img
                     src={require(`../../assets/foto5.jpg`)}
+                    alt="alt de ejemplo"
                 />
     
-                <div className="texto-container">
+                <div
+                    className="texto-container"
+                    // style={{
+                    //     transform : `translateY( ${offsetY * 0.25 }px )`
+                    // }}
+                >
                     <h2>¿Quiénes somos?</h2>
 
                     <p>

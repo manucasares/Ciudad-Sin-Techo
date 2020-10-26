@@ -4,16 +4,17 @@
     background: url('../../assets/gravel.png');
     padding: 2rem 0 2rem;
     img {
-        width: 60%;
+        width: 100%;
+        height: 370px;object-fit: cover;
     }
     .texto-container {
         position: relative;
-        width: 60%;
+        width: 100%;
         background-color: white;
-        margin-left: auto;
-        margin-top: -15rem;
+        margin: 0 auto;
         padding:  25px;
         z-index: 10;
+        text-align: justify;
         h2 {
             color: $primary;
             font-size: 3rem;
@@ -28,6 +29,19 @@
 
         p:nth-child(2) {
             margin-bottom: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .quienes-somos {
+        img {
+            width: 100%;
+        }
+
+        .texto-container {
+            margin: 0 auto;
+            width: 100%;
         }
     }
 }
