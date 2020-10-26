@@ -14,7 +14,10 @@ export const Paginacion = () => {
 
             {
                 arr.map( e => (
-                    <div className="articulos__paginacion">
+                    <div 
+                        className="articulos__paginacion"
+                        key={e}
+                    >
                         <p> {e} </p>
                     </div>
                 ))
