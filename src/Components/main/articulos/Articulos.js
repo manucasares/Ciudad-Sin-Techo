@@ -9,14 +9,14 @@ import { Paginacion } from "./Paginacion";
 export const Articulos = () => {
   
     const [articulos, setArticulos] = useState(articulosData);
-
-    const artsPerPage = 3;
-
+    
+    const artsPerPage = 2;
+    
     const [currentArts, setCurrentArts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState([1]);
-
-
+    
+    
     // Logica CurrentArts
     useEffect(() => {    
         const indexOfLastArt = artsPerPage * currentPage;
@@ -24,13 +24,15 @@ export const Articulos = () => {
 
                     //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
-        console.log(currentArts);
-    }, [setCurrentArts, artsPerPage, currentPage])
 
-    // Logica currentPage
+    }, [setCurrentArts, artsPerPage, currentPage, articulos])
+
+
+    // Logica totalPages
     useEffect(() => {
         setTotalPages([...Array(Math.ceil(articulos.length / artsPerPage)).keys()]);
-    }, [artsPerPage]);
+    }, [artsPerPage, articulos]);
+
 
 
     return (
@@ -38,14 +40,19 @@ export const Articulos = () => {
             <div className="container">
                 <h2 className="articulos__titulo">Blog de Ciudad Sin Techo</h2>
 
-                <Buscador setArticulos={setArticulos}/>
+                <Buscador
+                    setArticulos={setArticulos}
+                    setCurrentPage={setCurrentPage}
+                />
 
                 {/* ARTICULOS */}
                 <div className="d-flex-wrap ">
                     {
                         (articulos.length === 0)
+
                             ? <p className="articulos__not-results-found"> No se encontraron resultados para la búsqueda. </p>
-                            : articulos.map(({img,titulo, subtitulo, id}) => (
+
+                            : currentArts.map(({img,titulo, subtitulo, id}) => (
                                 <Link
                                     to={`/article/${transformToUrl(titulo)}`}
                                     className="articulos__articulo mb-5 pointer"
@@ -73,11 +80,15 @@ export const Articulos = () => {
                     }
                 </div>
 
-                <Paginacion
-                    totalPages={totalPages}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
+                {
+                    (currentArts.length !== 0) &&
+                        <Paginacion
+                            totalPages={totalPages}
+                            setTotalPages={setTotalPages}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                        />
+                }
             </div>
         </div>
     );
