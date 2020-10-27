@@ -24,6 +24,7 @@ export const Articulos = () => {
 
                     //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
+        console.log(currentArts);
     }, [setCurrentArts, artsPerPage, currentPage])
 
     // Logica currentPage
@@ -50,7 +51,6 @@ export const Articulos = () => {
                                     className="articulos__articulo mb-5 pointer"
                                     key={id}
                                 >
-
                                     <img
                                         className="img"
                                         src={require(`../../../assets/${img}`)}

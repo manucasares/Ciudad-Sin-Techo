@@ -7,12 +7,10 @@ export const QuienesSomos = () => {
     const [offsetY, setOffsetY] = useState(0);
 
     const handleScroll = () => {
-        console.log(window);
         setOffsetY(window.pageYOffset);
     }
 
     useEffect(() => {
-
         window.addEventListener("scroll", handleScroll);
 
         return () => {

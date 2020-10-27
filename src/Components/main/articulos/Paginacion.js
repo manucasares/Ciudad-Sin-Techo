@@ -16,6 +16,8 @@ export const Paginacion = ({totalPages, currentPage, setCurrentPage}) => {
         setCurrentPage( p => p + 1);
     }
 
+    console.log(currentPage);
+
 
     return (
         <div className="articulos__paginacion-container">
