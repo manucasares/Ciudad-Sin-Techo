@@ -17,12 +17,14 @@ export const ArticleScreen = () => {
 
     return (
         <div className="article container">
-            <h2 className="titulo mt-5">{titulo}</h2>
-
             <div className="fecha-autor d-flex-between">
                 <p>{fecha}</p>
+                <i class="fas fa-circle"></i>
                 <p>{autor}</p>
             </div>
+
+            <h2 className="titulo mt-5">{titulo}</h2>
+
 
             <p className="subtitulo">
                 {subtitulo}

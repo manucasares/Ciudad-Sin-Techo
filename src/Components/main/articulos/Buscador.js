@@ -1,10 +1,14 @@
-import React from 'react'
+import React from "react";
 
 export const Buscador = () => {
     return (
         <div className="articulos__buscador mb-5 mt-1">
-            <input className="input" placeholder="Buscar en el blog..." />
+            <input
+                className="input"
+                placeholder="Buscar en el blog..."
+                className="focus"
+            />
             <i className="fas fa-search pointer"></i>
         </div>
-    )
-}
+    );
+};

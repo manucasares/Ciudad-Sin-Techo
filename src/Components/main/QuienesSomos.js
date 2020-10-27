@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const QuienesSomos = () => {
 
 
-    //efecto parallax fallido
-    // const [offsetY, setOffsetY] = useState(0);
+    // efecto parallax
+    const [offsetY, setOffsetY] = useState(0);
 
-    // const handleScroll = () => {
-    //     console.log(window);
-    //     setOffsetY(window.pageYOffset);
-    // }
+    const handleScroll = () => {
+        console.log(window);
+        setOffsetY(window.pageYOffset);
+    }
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     }
-    // }, [])
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
 
 
     return (
@@ -34,9 +34,9 @@ export const QuienesSomos = () => {
     
                 <div
                     className="texto-container"
-                    // style={{
-                    //     transform : `translateY( ${offsetY * 0.25 }px )`
-                    // }}
+                    style={{
+                        transform : `translateY( ${offsetY * -0.4 }px )`
+                    }}
                 >
                     <h2>¿Quiénes somos?</h2>
 
