@@ -2,6 +2,7 @@
 .articulos__container {
     background-color: $grey-background;
     padding: 50px 0;
+    overflow-x: hidden;
 }
 
 .articulos__titulo {
@@ -43,6 +44,10 @@
         img{
             opacity: .8;
         }
+
+        .articulos__articulo-titulo {
+            color: darken($color: $primary, $amount: 13);
+        }
     }
 }
 
@@ -53,14 +58,16 @@
 }
 
 .articulos__articulo-titulo {
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 600;
     color: rgba($color: black, $alpha: .8);
+
+    transition: $transition;
 }
 
 .articulos__articulo-descripcion {
     color: $grey-text;
-    font-size: 0.9em;
+    font-size: 1em;
     text-transform: capitalize;
 }
 

@@ -10,16 +10,19 @@ export const Contacto = () => {
 
                 <form>
                     <input
+                        className="focus"
                         type="text"
                         placeholder="Nombre"  
                     />
 
                     <input
+                        className="focus"
                         type="email"
                         placeholder="Correo"  
                     />
 
                     <textarea
+                        className="focus"
                         placeholder="Mensaje"
                     ></textarea>
 

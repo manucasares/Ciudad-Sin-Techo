@@ -10,7 +10,7 @@ import { ArticleScreen } from "../Components/articles/ArticleScreen";
 export const AppRouter = () => {
     return (
         <Router>
-            <div>
+            <div className="app-router">
                 <Navbar />
 
                 <Switch>
