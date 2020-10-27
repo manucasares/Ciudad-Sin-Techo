@@ -3,35 +3,29 @@ import { articulos } from '../../../data/articulos'
 import { useForm } from '../../../hooks/useForm'
 import { getArticlesBySearch } from '../../../selectors/getArticlesBySearch'
 
-export const Buscador = ({setArticulos}) => {
+export const Buscador = ({setArticulos, setCurrentPage}) => {
 
-    const [{search}, handleInputChange, reset] = useForm({
+    const [{search}, handleInputChange] = useForm({
         search: ''
     })
 
-
+    
     useEffect(() => {
-        if( !search.trim() ) {
-            setArticulos(articulos);
-        }
-    }, [search])
-
-
-    const handleSearch = (e) => {
         if( !search.trim() ){
+            setArticulos(articulos);
             return;
         }
-        console.log('asd');
-
+    
         const articlesSearch = getArticlesBySearch(search);
+        
+        setCurrentPage(1);
         setArticulos(articlesSearch);
-    }
+    }, [search])
 
     
     return (
         <form
             className="articulos__buscador mb-5 mt-1"
-            onChange={handleSearch}
             onSubmit={e => e.preventDefault()}
         >
             <input
@@ -45,7 +39,6 @@ export const Buscador = ({setArticulos}) => {
 
             <i 
                 className="fas fa-search pointer"
-                onClick={handleSearch}    
             ></i>
         </form>
     )
