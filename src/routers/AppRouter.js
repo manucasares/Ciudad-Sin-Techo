@@ -25,9 +25,13 @@ export const AppRouter = () => {
                         component={ArticleScreen}
                     />
 
-                    <Route path="/" component={MainScreen} />
+                    <Route exact path="/" component={MainScreen} />
 
-                    <Route path="/" component={LegislacionesScreen} />
+                    <Route
+                        exact
+                        path="/legislaciones"
+                        component={LegislacionesScreen}
+                    />
 
                     <Redirect to="/" />
                 </Switch>

@@ -1,0 +1,116 @@
+.legislaciones__container{
+    background: #F1FAEE;
+
+}
+
+.legislaciones__titulo{
+    font-size:2.2em;
+    font-weight: 700;
+    margin-top: 1.2em;
+    text-align: center;
+}
+
+.legislaciones__subtitulo {
+    color: rgba($color: #457B9D, $alpha: .6);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.legislaciones__info{
+    background-color: white;
+    border-radius: 10px;
+    margin: 2em auto 4em;
+}
+
+.legislaciones__opcion {
+    background-color: rgba($color: #457B9D, $alpha: .6);
+    color: $grey-text;
+    font-weight: 600;
+    height: 57px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    padding: 1.2em;
+    text-align: center;
+    width: 33.3%;
+
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover{
+        background: #457B9D;
+        color: lighten($color: #457B9D, $amount: 25);
+    }
+}
+
+.legislaciones__container .active {
+    background-color: white;
+    pointer-events: none;
+}
+
+.legislaciones__body {
+    padding: 1em 6em ;
+}
+
+.legislaciones__body-titulo {
+    letter-spacing: 2.3px;
+}
+
+.legislaciones__body-descripcion {
+    color: $grey-text;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    line-height: 25px;
+}
+
+.legislaciones__btn {
+    background-color: #457B9D;
+    border-radius: 5px;
+    color: white;
+    margin: 25px 0;
+    padding: 10px 15px;
+    width: 220px;
+
+    cursor: pointer;
+    transition: $transition;
+
+    p{
+        font-size: .9em;
+        margin-left: 10px;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        background-color: lighten($color: #457B9D, $amount: 10);
+    }
+}
+
+.legislaciones__responsive {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .legislaciones__info{
+        display: none;
+    }
+
+    .legislaciones__responsive {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .legislaciones__body {
+        padding: 1em 2em ;
+
+    }
+
+    .legislaciones__opcion {
+        height: auto;
+        overflow: visible;
+        pointer-events: none;
+        width: 100%;
+    } 
+
+    .legislaciones__btn {
+        width: 100%;
+    } 
+}

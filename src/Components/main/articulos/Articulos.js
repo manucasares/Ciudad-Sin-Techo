@@ -26,7 +26,7 @@ export const Articulos = () => {
                     //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
 
-    }, [setCurrentArts, artsPerPage, currentPage, articulos])
+    }, [setCurrentArts ,artsPerPage, currentPage, articulos])
 
 
     // Logica totalPages

@@ -20,7 +20,7 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
         
         setCurrentPage(1);
         setArticulos(articlesSearch);
-    }, [search])
+    }, [search, setArticulos, setCurrentPage])
 
     
     return (
