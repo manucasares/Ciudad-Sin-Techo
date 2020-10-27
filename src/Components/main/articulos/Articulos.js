@@ -15,6 +15,7 @@ export const Articulos = () => {
     const [currentArts, setCurrentArts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState([1]);
+    const [pagesShown, setPagesShown] = useState(totalPages);
     
     
     // Logica CurrentArts
@@ -32,6 +33,21 @@ export const Articulos = () => {
     useEffect(() => {
         setTotalPages([...Array(Math.ceil(articulos.length / artsPerPage)).keys()]);
     }, [artsPerPage, articulos]);
+
+    useEffect(() => {
+        
+        if (totalPages.length > 10) {
+
+            (!totalPages[currentPage+9]) 
+                ?setPagesShown( totalPages.slice(-10))
+                :setPagesShown( totalPages.slice(currentPage - 1, currentPage + 9 ));
+            
+            
+        } else {
+            setPagesShown(totalPages)
+        }
+
+    }, [totalPages, currentPage])
 
 
 
@@ -83,8 +99,7 @@ export const Articulos = () => {
                 {
                     (currentArts.length !== 0) &&
                         <Paginacion
-                            totalPages={totalPages}
-                            setTotalPages={setTotalPages}
+                            pagesShown={pagesShown}
                             currentPage={currentPage}
                             setCurrentPage={setCurrentPage}
                         />
