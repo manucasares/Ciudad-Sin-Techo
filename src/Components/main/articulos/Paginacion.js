@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export const Paginacion = ({totalPages, setTotalPages, currentPage, setCurrentPage}) => {
+export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
 
     // const [pagesShown, setPagesShown] = useState(1);
 
@@ -12,7 +12,7 @@ export const Paginacion = ({totalPages, setTotalPages, currentPage, setCurrentPa
     }
 
     const handleNext = () => {
-        if(currentPage === totalPages.length){
+        if(currentPage === pagesShown.length){
             return;
         }
         setCurrentPage( p => p + 1);
@@ -54,7 +54,7 @@ export const Paginacion = ({totalPages, setTotalPages, currentPage, setCurrentPa
 
             {/* PAGINAS */}
             {
-                totalPages.map( page => (
+                pagesShown.map( page => (
                     <div 
                         className={
                             (page + 1 === currentPage)
