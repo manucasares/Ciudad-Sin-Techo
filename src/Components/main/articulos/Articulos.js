@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+
 import { articulos as articulosData} from "../../../data/articulos";
-import { transformToUrl } from "../../helper/transformStrings";
+import { transformToUrl } from "../../../helper/transformStrings";
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
-
 
 export const Articulos = () => {
   
@@ -26,7 +27,7 @@ export const Articulos = () => {
                     //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
 
-    }, [setCurrentArts, artsPerPage, currentPage, articulos])
+    }, [setCurrentArts ,artsPerPage, currentPage, articulos])
 
 
     // Logica totalPages

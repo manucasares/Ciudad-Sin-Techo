@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
 
@@ -25,19 +25,6 @@ export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
 
         setCurrentPage(page);
     }
-
-
-    // useEffect(() => {
-
-    //     if(totalPages.length >= 10){
-    //         // console.log('length totalPages: ' + totalPages.length);
-
-
-    //         // setTotalPages( totalPages.slice(currentPage - 1, currentPage + 9 ))
-    //     }
-
-    // }, [currentPage, totalPages])
-
 
 
     return (

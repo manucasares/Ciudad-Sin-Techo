@@ -100,3 +100,23 @@ img {
         border: 1px solid $primary;
     }
 }
+
+.btn {
+    border: none;
+    background-color: #457B9D;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 15px;
+
+    cursor: pointer;
+    transition: $transition;
+
+    p{
+        font-size: .9em;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        background-color: lighten($color: #457B9D, $amount: 10);
+    }
+}
