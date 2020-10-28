@@ -1,4 +1,4 @@
-input, textarea {
+.input, .textarea {
     background: white;
     border: none;
     border-radius: 5px;
@@ -8,10 +8,7 @@ input, textarea {
     outline: none;
 }
 
-textarea {
+.textarea {
     min-width: 100%;
     max-width: 100%;
-    min-height: 100px;
-    height: 130px;
-    max-height: 160px;
 }

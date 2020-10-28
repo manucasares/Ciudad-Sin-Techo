@@ -31,6 +31,9 @@
 .contacto .contacto-container form textarea{
     width: 100%;
     margin-bottom: 15px;
+    min-height: 100px;
+    height: 130px;
+    max-height: 160px;
 }
 
 .contacto .contacto-container form button{

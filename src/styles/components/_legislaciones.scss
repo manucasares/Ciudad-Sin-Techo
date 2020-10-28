@@ -1,10 +1,10 @@
-.legislaciones__container{
+.legislaciones__container {
     background: #F1FAEE;
 
 }
 
-.legislaciones__titulo{
-    font-size:2.2em;
+.legislaciones__titulo {
+    font-size: 2.2em;
     font-weight: 700;
     margin-top: 1.2em;
     text-align: center;
@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.legislaciones__info{
+.legislaciones__info {
     background-color: white;
     border-radius: 10px;
     margin: 2em auto 4em;
@@ -36,7 +36,7 @@
     cursor: pointer;
     transition: $transition;
 
-    &:hover{
+    &:hover {
         background: #457B9D;
         color: lighten($color: #457B9D, $amount: 25);
     }
@@ -48,7 +48,7 @@
 }
 
 .legislaciones__body {
-    padding: 1em 6em ;
+    padding: 1em 6em;
 }
 
 .legislaciones__body-titulo {
@@ -63,24 +63,10 @@
 }
 
 .legislaciones__btn {
-    background-color: #457B9D;
-    border-radius: 5px;
-    color: white;
     margin: 25px 0;
-    padding: 10px 15px;
     width: 220px;
-
-    cursor: pointer;
-    transition: $transition;
-
-    p{
-        font-size: .9em;
+    p {
         margin-left: 10px;
-        text-transform: uppercase;
-    }
-
-    &:hover {
-        background-color: lighten($color: #457B9D, $amount: 10);
     }
 }
 
@@ -89,7 +75,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .legislaciones__info{
+    .legislaciones__info {
         display: none;
     }
 
@@ -99,7 +85,7 @@
     }
 
     .legislaciones__body {
-        padding: 1em 2em ;
+        padding: 1em 2em;
 
     }
 
@@ -108,9 +94,9 @@
         overflow: visible;
         pointer-events: none;
         width: 100%;
-    } 
+    }
 
     .legislaciones__btn {
         width: 100%;
-    } 
+    }
 }

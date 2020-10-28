@@ -94,7 +94,7 @@ export const LegislacionesScreen = () => {
                         </p>
                     ))}
 
-                    <div className="legislaciones__btn d-flex-center">
+                    <div className="btn legislaciones__btn d-flex-center">
                         <i className="fas fa-file-pdf"></i>
                         <p>ver texto completo</p>
                     </div>
@@ -121,7 +121,7 @@ export const LegislacionesScreen = () => {
                             </p>
                         ))}
 
-                        <div className="legislaciones__btn d-flex-center">
+                        <div className="btn legislaciones__btn d-flex-center">
                             <i className="fas fa-file-pdf"></i>
                             <p>ver texto completo</p>
                         </div>

@@ -1,0 +1,103 @@
+.article-edit__main-content {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.article-edit__appbar {
+    align-items: center;
+    background-color: darken($color: $primary, $amount: 30);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+    button {
+        background: none;
+        border: none;
+        color: white;
+        margin-right: 10px;
+
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+}
+
+.article-edit__date-input, .article-edit__author-input {
+    background-color: darken($color: $primary, $amount: 30);
+    border: 1px solid transparent;
+    color: white;
+    margin-right: 10px;
+
+    &:focus{
+        border: 1px solid white;
+    }
+}
+
+.article-edit__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+
+.article-edit__title-input,
+.article-edit__textarea,
+.article-edit__subtitulo-input {
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.article-edit__title-input {
+    color: darken($color: $primary, $amount: 10);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.article-edit__subtitulo-input {
+    line-height: 30px;
+    text-align: justify;
+    font-size: 1.1em;
+    font-weight: 300;
+    color: $grey-text;
+}
+
+.article-edit__textarea {
+    border: none;
+    color: $grey-text;
+    font-size: 1em;
+    flex: 1 1 auto;
+    line-height: 29px;
+    margin-top: 15px;
+    text-align: justify;
+    resize: none;
+}
+
+.article-edit__image {
+    height: 300px;
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        object-position: 50% 50%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .article-edit__appbar button{
+        margin: 5px 0;
+    }
+
+    
+}
