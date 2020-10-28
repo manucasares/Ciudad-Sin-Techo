@@ -8,19 +8,19 @@ export const ContactoForm = () => {
             <form>
     
                 <input
-                    className="focus"
+                    className="input focus"
                     type="text"
                     placeholder="Nombre"  
                 />
     
                 <input
-                    className="focus"
+                    className="input focus"
                     type="email"
                     placeholder="Correo"  
                 />
     
                 <textarea
-                    className="focus"
+                    className="textarea focus"
                     placeholder="Mensaje"
                 ></textarea>
     
