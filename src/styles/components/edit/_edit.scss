@@ -10,6 +10,7 @@
 
     .edit__sidebar {
         overflow: hidden;
+        padding: 0;
         width: 0;
     }   
 
@@ -29,6 +30,7 @@
     background: $dark-background;
     color: white;
     height: 100vh;
+    padding: 0 5px;
     width: 30%;
 
     transition: $transition;
@@ -36,6 +38,10 @@
 
 .edit__sidebar-navbar {
     padding: 0 15px;
+
+    h3{
+        margin: 15px 0;
+    } 
 
     p{
         font-weight: 300;
@@ -47,9 +53,10 @@
 }
 
 .edit__new-entry {
-    margin-top: 20px;
-    i{
-        margin-right: 20px;
+    text-align: center;
+
+    p{
+        margin-top: 10px;
     }
 
     &:hover {
@@ -60,6 +67,18 @@
 
 .edit__sidebar-arrow {
     display: none;
+}
+
+.fa-sort-down, .fa-sort-up {
+    text-align: center;
+    width: 100%;
+
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        opacity: .8;
+    }
 }
 
 // *************  NOTHING SELECTED  *************
@@ -82,10 +101,10 @@
 // **************  EDIT ARTICLES ************
 
 .edit__articles {
+    margin: 0;
     flex: 1 1 auto;
     //ESTO DESPUES SE SACA!!!!!!!!!!!!!!!!
-    height: 75vh;
-    margin-top: 30px;
+    height: 60vh;
     overflow-y: scroll;
 }
 

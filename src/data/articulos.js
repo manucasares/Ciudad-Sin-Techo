@@ -6,7 +6,7 @@
         titulo: "Lorem ipsum dolor sit amet1",
         subtitulo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a dolor quis massa elementum pretium.",
         img: "foto1.jpg",
-        body: "que Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum massa nisi, aliquam eu cursus id, eleifend sed urna. Sed ut semper diam. Suspendisse potenti. Mauris ex elit, vestibulum id turpis a, euismod pharetra mauris. Aenean sapien ante, rhoncus et eleifend vel, volutpat nec urna. Suspendisse in lobortis nisi. Donec eget eleifend nunc. Proin euismod in justo at pellentesque. Quisque interdum lacus at orci sagittis, posuere mollis purus facilisis. Nunc venenatis ultrices purus, eu interdum diam pretium id. "
+        body: "que Lorem chuqui ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum massa nisi, aliquam eu cursus id, eleifend sed urna. Sed ut semper diam. Suspendisse potenti. Mauris ex elit, vestibulum id turpis a, euismod pharetra mauris. Aenean sapien ante, rhoncus et eleifend vel, volutpat nec urna. Suspendisse in lobortis nisi. Donec eget eleifend nunc. Proin euismod in justo at pellentesque. Quisque interdum lacus at orci sagittis, posuere mollis purus facilisis. Nunc venenatis ultrices purus, eu interdum diam pretium id. "
     },
     {
         id: 2,
