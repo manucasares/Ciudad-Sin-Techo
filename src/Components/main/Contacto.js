@@ -1,4 +1,5 @@
 import React from 'react'
+import { ContactoForm } from './ContactoForm'
 
 export const Contacto = () => {
     return (
@@ -6,33 +7,26 @@ export const Contacto = () => {
 
             <div className="contacto-container">
 
-                <p className="titulo">Contacto</p>
 
-                <form>
-                    <input
-                        className="focus"
-                        type="text"
-                        placeholder="Nombre"  
-                    />
+                <ContactoForm />
 
-                    <input
-                        className="focus"
-                        type="email"
-                        placeholder="Correo"  
-                    />
+                <hr />
 
-                    <textarea
-                        className="focus"
-                        placeholder="Mensaje"
-                    ></textarea>
+                <h3> O bien... Chatea con nosotros! </h3>
 
-                    <button
-                        type="submit"
-                    >
-                        Enviar
+                <div className="whatsapp-container">
+                    <div className="whatsapp-icon">
+                        <img
+                            src={require(`../../assets/whatsapp_icon.png`)}
+                        />
+                    </div>
+
+                    <button>
+                        Iniciar chat
+
                     </button>
 
-                </form>
+                </div>
 
             </div>
             

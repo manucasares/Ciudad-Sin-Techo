@@ -15,7 +15,6 @@ export const Footer = () => {
     
                 <div className="t-center">
 
-                    <h4 className="footer__info-titulo">Quienes somos</h4>
                     <p className="footer__info">Ciudad Sin Techo - 2012</p>
                     <p className="footer__info">+11 59971822</p>
                     <p className="footer__info">ciudadsintecho@gmail.com.ar</p>

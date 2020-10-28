@@ -48,6 +48,39 @@
     }
 }
 
+// Whatsapp
+
+.whatsapp-container {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-radius: 3px;
+    background: url('../../assets/gravel.png');
+
+}
+
+
+.whatsapp-container .whatsapp-icon {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+}
+
+.whatsapp-container .whatsapp-icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+}
+
+.whatsapp-container p {
+
+}
+
+
+
 
 @media screen and (max-width: 800px){
 
@@ -55,13 +88,11 @@
         width: 80%;
     }
     
-
     .contacto .contacto-container form input:first-child,
     .contacto .contacto-container form input:nth-child(2){
         width: 100%;
 
     }
-
 }
 
 
