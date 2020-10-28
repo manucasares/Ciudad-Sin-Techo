@@ -1,38 +1,35 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-} from "react-router-dom";
-
-import { Navbar } from "../Components/ui/Navbar";
-import { Footer } from "../Components/ui/Footer";
-import { MainScreen } from "../Components/main/MainScreen";
-import { ArticleScreen } from "../Components/articles/ArticleScreen";
-import { LegislacionesScreen } from "../Components/LegislacionesScreen";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { LoginScreen } from "../Components/auth/LoginScreen";
+import { EditScreen } from "../Components/edit/EditScreen";
+import { DashboardRoutes } from "./DashboardRoutes";
 
 export const AppRouter = () => {
     return (
         <Router>
-            <div className="app-router">
-                <Navbar />
-
+            <div>
                 <Switch>
-                    <Route
-                        exact
-                        path="/article/:title"
-                        component={ArticleScreen}
+
+                    {/* PRIVATE ROUTE */}
+                    <Route 
+                        exact 
+                        path="/edit" 
+                        component={EditScreen} 
+                        // isAuthenticated={ isLoggedIn }    
                     />
 
-                    <Route path="/" component={MainScreen} />
+                    {/* PUBLIC ROUTE */}
+                    <Route
+                        exact
+                        path="/auth/login"
+                        component={LoginScreen}
+                    />
 
-                    <Route path="/" component={LegislacionesScreen} />
+                    
+                    <Route path='/' component= {DashboardRoutes} />
 
-                    <Redirect to="/" />
+
                 </Switch>
-
-                <Footer />
             </div>
         </Router>
     );

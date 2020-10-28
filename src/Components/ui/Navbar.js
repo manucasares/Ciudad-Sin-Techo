@@ -32,7 +32,10 @@ export const Navbar = () => {
                 >
                     <p>¿Quiénes somos?</p>
                     <p>Blog</p>
-                    <p>Legislaciones</p>
+
+                    <Link to="/legislaciones" >
+                        <p>Legislaciones</p>
+                    </Link>
                     <p>Contacto</p>
                 </div>
             </nav>

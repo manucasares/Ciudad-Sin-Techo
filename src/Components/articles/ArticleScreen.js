@@ -1,8 +1,7 @@
 import React from 'react'
 import { Redirect, useParams } from 'react-router-dom';
+import { transformToString } from '../../helper/transformStrings';
 import { getArticleByTitle } from '../../selectors/getArticleByTitle';
-import { transformToString } from '../helper/transformStrings';
-
 export const ArticleScreen = () => {
     
     

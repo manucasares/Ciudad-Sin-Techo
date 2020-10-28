@@ -20,7 +20,7 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
         
         setCurrentPage(1);
         setArticulos(articlesSearch);
-    }, [search])
+    }, [search, setArticulos, setCurrentPage])
 
     
     return (
@@ -29,7 +29,7 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
             onSubmit={e => e.preventDefault()}
         >
             <input
-                className="input"
+                className="focus input"
                 placeholder="Buscar en el blog..."
                 name="search"
                 onChange={handleInputChange}
