@@ -19,6 +19,10 @@
     padding: 5px 0;
 }
 
+.navbar .navbar-container .logo-bars .fa-bars {
+    display: none;
+}
+
 .navbar .navbar-container .nav-items {
     display: flex;
     justify-content: space-between;
@@ -63,9 +67,7 @@
     
 }
 
-.fa-bars {
-    display: none;
-}
+
 
 // SHOW //
 
@@ -80,7 +82,7 @@
             padding: 0;
         }
 
-        .logo-bars {
+        .navbar-container .logo-bars {
             display: flex;
             align-items: center;
             justify-content: space-between;

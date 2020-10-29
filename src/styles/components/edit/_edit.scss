@@ -10,6 +10,7 @@
 
     .edit__sidebar {
         overflow: hidden;
+        padding: 0;
         width: 0;
     }   
 
@@ -29,6 +30,7 @@
     background: $dark-background;
     color: white;
     height: 100vh;
+    padding: 0 5px;
     width: 30%;
 
     transition: $transition;
@@ -37,19 +39,17 @@
 .edit__sidebar-navbar {
     padding: 0 15px;
 
-    p{
-        font-weight: 300;
+    h3{
+        margin: 15px 0;
+    } 
 
-        &:hover{
-            opacity: .8;
-        }
-    }
 }
 
 .edit__new-entry {
-    margin-top: 20px;
-    i{
-        margin-right: 20px;
+    text-align: center;
+
+    p{
+        margin-top: 10px;
     }
 
     &:hover {
@@ -60,6 +60,18 @@
 
 .edit__sidebar-arrow {
     display: none;
+}
+
+.fa-sort-down, .fa-sort-up {
+    text-align: center;
+    width: 100%;
+
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        opacity: .8;
+    }
 }
 
 // *************  NOTHING SELECTED  *************
@@ -82,11 +94,10 @@
 // **************  EDIT ARTICLES ************
 
 .edit__articles {
+    margin: 0;
     flex: 1 1 auto;
-    //ESTO DESPUES SE SACA!!!!!!!!!!!!!!!!
-    height: 75vh;
-    margin-top: 30px;
-    overflow-y: scroll;
+    height: 60vh;
+    // overflow-y: scroll;
 }
 
 .edit__article {
@@ -95,7 +106,7 @@
     color: $grey-text;
     display: flex;
     margin-bottom: 10px;
-    max-height: 75px;
+    max-height: 72px;
     overflow: hidden;
 
     cursor: pointer;
@@ -146,11 +157,7 @@
         .edit__sidebar-arrow{
             display: block;
             background: $dark-background;
-            color: white;
-            border: none;
             transform: rotate(180deg);
-
-            cursor: pointer;
         }
     }
 

@@ -25,7 +25,7 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
     
     return (
         <form
-            className="articulos__buscador mb-5 mt-1"
+            className="articulos__buscador mt-1"
             onSubmit={e => e.preventDefault()}
         >
             <input

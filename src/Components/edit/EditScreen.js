@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { EditArticleScreen } from "./EditArticleScreen";
-import { NothingSelected } from "./NothingSelected";
+// import { NothingSelected } from "./NothingSelected";
 import { Sidebar } from "./Sidebar";
 
 export const EditScreen = () => {

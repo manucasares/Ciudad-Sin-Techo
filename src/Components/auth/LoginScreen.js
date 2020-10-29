@@ -1,6 +1,11 @@
 import React from 'react'
+import { useForm } from '../../hooks/useForm'
 
 export const LoginScreen = () => {
+
+    const [formValues, handleInputChange] = useForm({email:'', password:''});
+    const {email, password} = formValues;
+
     return (
         <div className=" login__container">
             <h3 className='login__titulo'>Login</h3>
@@ -12,8 +17,8 @@ export const LoginScreen = () => {
                     name='email'  
                     autoComplete='off'
                     className="login__input focus input"  
-                    // value={ email }
-                    // onChange={ handleInputChange }
+                    value={ email }
+                    onChange={ handleInputChange }
                 />
 
                 <input 
@@ -21,8 +26,8 @@ export const LoginScreen = () => {
                     placeholder='password'
                     name='password' 
                     className="login__input focus input"  
-                    // value={ password } 
-                    // onChange={ handleInputChange }
+                    value={ password } 
+                    onChange={ handleInputChange }
                 />
                 
                 <button 
