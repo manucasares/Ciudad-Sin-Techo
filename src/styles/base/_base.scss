@@ -28,6 +28,12 @@ p {
 
 a {
     color: white;
+    text-decoration: none;
+}
+
+hr {
+    border: 1px solid rgba($color: black, $alpha: .2);
+    margin: 1.5rem 0;
 }
 
 img {
@@ -108,12 +114,10 @@ img {
 .btn {
     border: none;
     background-color: #457B9D;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 15px;
-
+    border-radius: 3px;
     cursor: pointer;
     transition: $transition;
+<<<<<<< HEAD
 
     p {
         font-size: .9em;
@@ -137,4 +141,6 @@ img {
     &:hover {
         opacity: .8;
     }
+=======
+>>>>>>> b0e9cc065560b4f4f40f6727a52b629ba85d5fbc
 }

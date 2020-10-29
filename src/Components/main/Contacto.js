@@ -12,21 +12,21 @@ export const Contacto = () => {
 
                 <hr />
 
-                <h3> O bien... Chatea con nosotros! </h3>
+                <h3> O bien... <a href="https://api.whatsapp.com/send?phone=541131584171&text=holaasd" target="_blank" rel="noopener noreferrer" > chatea con nosotros! </a>
+                </h3>
 
-                <div className="whatsapp-container">
+                {/* <div className="whatsapp-container">
                     <div className="whatsapp-icon">
                         <img
                             src={require(`../../assets/whatsapp_icon.png`)}
                         />
                     </div>
 
-                    <button>
+                    <button className="btn">
                         Iniciar chat
-
                     </button>
 
-                </div>
+                </div> */}
 
             </div>
             

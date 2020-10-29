@@ -12,7 +12,8 @@ export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
     }
 
     const handleNext = () => {
-        if(currentPage === pagesShown.length){
+        if(currentPage === pagesShown[ pagesShown.length - 1 ] + 1){
+            console.log('next incorrecto');
             return;
         }
         setCurrentPage( p => p + 1);

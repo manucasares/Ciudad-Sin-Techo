@@ -7,6 +7,7 @@ export const LegislacionesScreen = () => {
 
     const leyes = [
         {
+            id: 1,
             titulo: "Ley 13956: Pograma de Asistencia Integral Para Personas en Situación de Calle",
             body: [
                 "Crea el Pograma de Asistencia Integral Para Personas en Situación de Calle, en el ámbito de la Provincia de Buenos Aires.",
@@ -16,6 +17,7 @@ export const LegislacionesScreen = () => {
             pdf: null, //url del pdf
         },
         {
+            id: 2,
             titulo: "Proyecto de Ley: Programa de Inserción Laboral",
             body: [
                 "Créase el Programa de Inserción Laboral (PIL) para personas en situación de calle o en riego de situación de calle en el ámbito de la Ciudad Autónoma de Buenos Aires.",
@@ -25,6 +27,7 @@ export const LegislacionesScreen = () => {
             pdf: null, //url del pdf
         },
         {
+            id: 3,
             titulo: "Proyecto de Ley",
             body: [
                 "La   presente   ley   tiene   por   objeto   proteger, garantizar   integralmente   y   hacer   operativos   los   derechos   de   las personas en situación de calle y en riesgo a la situación de calle. ",
@@ -38,14 +41,14 @@ export const LegislacionesScreen = () => {
         },
     ];
 
-    const [leyShow, setLeyShow] = useState(leyes[0]);
+    const [leyShown, setLeyShown] = useState(leyes[0]);
 
     const handleShowInfo = index => {
         const arr = [opcion1, opcion2, opcion3];
 
         arr.forEach(e => e.current.classList.remove("active"));
 
-        setLeyShow(leyes[index]);
+        setLeyShown(leyes[index]);
 
         arr[index].current.classList.add("active");
     };
@@ -85,14 +88,16 @@ export const LegislacionesScreen = () => {
 
                 <div className="legislaciones__body">
                     <h5 className="legislaciones__body-titulo">
-                        {leyShow.titulo}
+                        {leyShown.titulo}
                     </h5>
 
-                    {leyShow.body.map((text, i) => (
-                        <p key={i} className="legislaciones__body-descripcion">
-                            {text}
-                        </p>
-                    ))}
+                    {
+                        leyShown.body.map((text, i) => (
+                            <p key={i} className="legislaciones__body-descripcion">
+                                {text}
+                            </p>
+                        ))
+                    }
 
                     <div className="btn legislaciones__btn d-flex-center">
                         <i className="fas fa-file-pdf"></i>
@@ -102,9 +107,9 @@ export const LegislacionesScreen = () => {
             </div>
 
             {/* RESPONSIVE */}
-            {leyes.map(({ titulo, body, pdf }, i) => (
+            {leyes.map(({ id, titulo, body, pdf }) => (
                 <div
-                    key={i}
+                    key={id}
                     className="legislaciones__responsive legislaciones__info container"
                 >
                     <p className="legislaciones__opcion">{titulo}</p>
@@ -112,9 +117,9 @@ export const LegislacionesScreen = () => {
                     <div className="legislaciones__body">
                         <h5 className="legislaciones__body-titulo">{titulo}</h5>
 
-                        {body.map((text, i) => (
+                        {body.map((text) => (
                             <p
-                                key={i}
+                                key={body[0]}
                                 className="legislaciones__body-descripcion"
                             >
                                 {text}

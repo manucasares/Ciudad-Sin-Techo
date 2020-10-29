@@ -21,7 +21,7 @@ export const ArticleScreen = () => {
         <div className="article container">
             <div className="fecha-autor d-flex-between">
                 <p>{fecha}</p>
-                <i class="fas fa-circle"></i>
+                <i className="fas fa-circle"></i>
                 <p>{autor}</p>
             </div>
 

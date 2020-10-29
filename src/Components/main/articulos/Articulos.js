@@ -7,6 +7,7 @@ import { transformToUrl } from "../../../helper/transformStrings";
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
 
+
 export const Articulos = () => {
   
     const [articulos, setArticulos] = useState(articulosData);
@@ -16,7 +17,9 @@ export const Articulos = () => {
     const [currentArts, setCurrentArts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState([1]);
+
     const [pagesShown, setPagesShown] = useState(totalPages);
+    const [pagesShownLength, setPagesShownLength] = useState(9);
     
     
     // Logica CurrentArts
@@ -35,20 +38,34 @@ export const Articulos = () => {
         setTotalPages([...Array(Math.ceil(articulos.length / artsPerPage)).keys()]);
     }, [artsPerPage, articulos]);
 
+
+
+    
     useEffect(() => {
-        
         if (totalPages.length > 10) {
 
-            (!totalPages[currentPage+9]) 
-                ?setPagesShown( totalPages.slice(-10))
-                :setPagesShown( totalPages.slice(currentPage - 1, currentPage + 9 ));
-            
+            // si la currentPage + Variable es undefined
+            // ? si es undefined significa que ya esta "al final" de la paginacion y comenzará a cortar el array de adelante hacia atras
+            // : si no es undefined seguirá cortando desde la currentPage hasta la cantidad de paginas que se muestran
+        
+            ( !totalPages[ currentPage + pagesShownLength ] ) 
+                ? setPagesShown( totalPages.slice( - ( pagesShownLength + 1 ) ))
+                : setPagesShown( totalPages.slice(currentPage - 1, currentPage + pagesShownLength ));
             
         } else {
             setPagesShown(totalPages)
         }
+    }, [totalPages, currentPage, pagesShownLength])
 
-    }, [totalPages, currentPage])
+
+    // Responsive paginación
+    useEffect(() => {
+        
+        if(window.innerWidth < 500) {
+            setPagesShownLength(6);
+        }
+        
+    }, [pagesShownLength])
 
 
 
@@ -69,7 +86,6 @@ export const Articulos = () => {
                         (articulos.length === 0)
 
                             ? <p className="articulos__not-results-found"> No se encontraron resultados para la búsqueda. </p>
-
                             : currentArts.map(({img,titulo, subtitulo, id}) => (
                                 <Link
                                     to={`/article/${transformToUrl(titulo)}`}
