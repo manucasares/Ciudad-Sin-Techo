@@ -68,14 +68,10 @@ export const Sidebar = ({ setSidebarShown }) => {
                     Logout
                 </button>
 
-<<<<<<< HEAD
                 <button
                     className="edit__sidebar-arrow link"
                     onClick={handleSidebarShow}
                 >
-=======
-                <button className="edit__sidebar-arrow" onClick={handleSidebarShow}>
->>>>>>> b0e9cc065560b4f4f40f6727a52b629ba85d5fbc
                     <i className="fas fa-arrow-left"></i>
                 </button>
             </div>
