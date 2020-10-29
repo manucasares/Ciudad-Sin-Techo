@@ -30,20 +30,20 @@ export const Sidebar = ({ setSidebarShown }) => {
     useEffect(() => {
         const totalPages = Math.ceil(articulos.length / artsPerPage);
 
-        if (totalPages === 1 || totalPages === 0) {
-            setShowBotton(prevState => ({sortUp:false, sortUp: false}));
+        if (totalPages <= 1) {
+            setShowBotton({sortUp:false, sortDown: false});
             return;
         }
 
         switch (currentPage){
             case 1:
-                setShowBotton(prevState => ({sortDown: true, sortUp: false}))
+                setShowBotton({sortUp: false, sortDown: true})
                 break;
             case totalPages:
-                setShowBotton(prevState => ({sortUp: true, sortDown: false}))
+                setShowBotton({sortUp: true, sortDown: false})
                 break;
             default:
-                setShowBotton(prevState => ({sortUp:true, sortDown: true}))
+                setShowBotton({sortUp:true, sortDown: true})
         }
     }, [currentPage, articulos, artsPerPage]);
 
@@ -61,15 +61,15 @@ export const Sidebar = ({ setSidebarShown }) => {
                     <span> Ciudad Sin Techo </span>
                 </h3>
 
-                <p
-                    className="pointer"
+                <button
+                    className="link"
                     // onClick={handleLogout}
                 >
                     Logout
-                </p>
+                </button>
 
                 <button
-                    className="edit__sidebar-arrow"
+                    className="edit__sidebar-arrow link"
                     onClick={handleSidebarShow}
                 >
                     <i className="fas fa-arrow-left"></i>

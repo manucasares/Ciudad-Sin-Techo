@@ -43,13 +43,6 @@
         margin: 15px 0;
     } 
 
-    p{
-        font-weight: 300;
-
-        &:hover{
-            opacity: .8;
-        }
-    }
 }
 
 .edit__new-entry {
@@ -103,9 +96,8 @@
 .edit__articles {
     margin: 0;
     flex: 1 1 auto;
-    //ESTO DESPUES SE SACA!!!!!!!!!!!!!!!!
     height: 60vh;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 }
 
 .edit__article {
@@ -114,7 +106,7 @@
     color: $grey-text;
     display: flex;
     margin-bottom: 10px;
-    max-height: 75px;
+    max-height: 72px;
     overflow: hidden;
 
     cursor: pointer;
@@ -165,11 +157,7 @@
         .edit__sidebar-arrow{
             display: block;
             background: $dark-background;
-            color: white;
-            border: none;
             transform: rotate(180deg);
-
-            cursor: pointer;
         }
     }
 

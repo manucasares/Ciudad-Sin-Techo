@@ -14,17 +14,7 @@
     padding: 10px 20px;
 
     button {
-        background: none;
-        border: none;
-        color: white;
-        margin-right: 10px;
-
-        cursor: pointer;
-        transition: $transition;
-
-        &:hover {
-            opacity: .8;
-        }
+        margin-left: 15px;
     }
 
 }
@@ -49,7 +39,7 @@
 
 .article-edit__title-input,
 .article-edit__textarea,
-.article-edit__subtitulo-input {
+.article-edit__subtitle-input {
     border: none;
 
     &:focus {
