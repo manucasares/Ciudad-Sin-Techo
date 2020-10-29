@@ -22,7 +22,7 @@ export const Sidebar = ({ setSidebarShown }) => {
                 </p>
 
                 <button className="edit__sidebar-arrow" onClick={handleSidebarShow}>
-                    <i class="fas fa-arrow-left"></i>
+                    <i className="fas fa-arrow-left"></i>
                 </button>
             </div>
 

@@ -9,7 +9,7 @@ export const EditArticleNavBar = ({setSidebarShown}) => {
     return (
         <div className="article-edit__appbar">
             <button className="arrow" onClick={handleSidebarShow}>
-                <i class="fas fa-arrow-left"></i>
+                <i className="fas fa-arrow-left"></i>
             </button>
 
             <div>
