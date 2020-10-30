@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { articulos as articulosData } from "../../data/articulos";
+
 import { Buscador } from "../main/articulos/Buscador";
-import { EditArticles } from "./EditArticles";
+import { startLogout } from "../../actions/auth";
+import { startNewArticle } from "../../actions/crud";
+import { SelectArticles } from "./SelectArticles";
+
+
 
 export const Sidebar = ({ setSidebarShown }) => {
-    const [articulos, setArticulos] = useState(articulosData);
+
+    const dispatch = useDispatch();
+    const { arts } = useSelector( state => state.crud );
+
+    const [articulos, setArticulos] = useState(arts);
 
     const [{ sortUp, sortDown }, setShowBotton] = useState({
         sortUp: false,
@@ -50,8 +59,25 @@ export const Sidebar = ({ setSidebarShown }) => {
     //handleSidebarShow: para sacar y poner el sidebar
     //PARA SACAR Y PONER EL SIDEBAR, SERÍA OPTIMO DEJAR ESTO EN REDUX
     const handleSidebarShow = () => {
-        setSidebarShown(prevState => (prevState ? false : true));
+        setSidebarShown( prevState => ( !prevState ));
     };
+    
+
+    const handleLogout = () => {
+        dispatch(
+            startLogout()
+        );
+    }
+       
+    
+    const handleNewArticle = () => {
+        handleSidebarShow();
+
+        dispatch(
+            startNewArticle()
+        );
+    }
+
 
     return (
         <aside className="edit__sidebar">
@@ -63,7 +89,7 @@ export const Sidebar = ({ setSidebarShown }) => {
 
                 <button
                     className="link"
-                    // onClick={handleLogout}
+                    onClick={handleLogout}
                 >
                     Logout
                 </button>
@@ -79,10 +105,15 @@ export const Sidebar = ({ setSidebarShown }) => {
             <div
                 className="edit__new-entry pointer"
                 onClick={handleSidebarShow}
-                // onClick = { handleNewArticle }
+                onClick = { handleNewArticle }
             >
                 <i className="far fa-calendar-plus fa-3x "></i>
-                <p className="mt-5">Nuevo articulo</p>
+                <p
+                    className="mt-5"
+                    onClick={handleNewArticle}
+                >
+                    Nuevo articulo
+                </p>
             </div>
 
             <Buscador
@@ -95,7 +126,7 @@ export const Sidebar = ({ setSidebarShown }) => {
                 <i className="fas fa-sort-up fa-2x" onClick={() => setCurrentPage(p => p - 1)}></i>
             )}
 
-            <EditArticles
+            <SelectArticles
                 handleSidebarShow={handleSidebarShow}
                 currentArts={currentArts}
             />

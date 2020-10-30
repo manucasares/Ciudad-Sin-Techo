@@ -1,41 +1,44 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import { transformToString } from '../../helper/transformStrings';
 import { getArticleByTitle } from '../../selectors/getArticleByTitle';
 export const ArticleScreen = () => {
     
-    
+    const { arts } = useSelector( state => state.crud );
+
     const {title} = useParams()
 
-    const art = getArticleByTitle(transformToString(title));
+    const art = getArticleByTitle( arts, transformToString(title) );
     
     if( !art ) {
-        console.log('asd');
         return <Redirect to="/" />
     }
 
-    const {fecha, autor, img, titulo, subtitulo, body} = art;
+    console.log(art);
+
+    const {date, author, subtitle, body} = art;
 
 
     return (
         <div className="article container">
             <div className="fecha-autor d-flex-between">
-                <p>{fecha}</p>
+                <p>{date}</p>
                 <i className="fas fa-circle"></i>
-                <p>{autor}</p>
+                <p>{author}</p>
             </div>
 
-            <h2 className="titulo mt-5">{titulo}</h2>
+            <h2 className="titulo mt-5">{title}</h2>
 
 
             <p className="subtitulo">
-                {subtitulo}
+                {subtitle}
             </p>
 
-            <img
+            {/* <img
                 src={require(`../../assets/${img}`)}
                 alt="foto1"
-            />
+            /> */}
 
             <p className="main-text">
                 {body}
