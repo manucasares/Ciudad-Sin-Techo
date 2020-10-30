@@ -8,18 +8,21 @@
 
 // Components
 
-@import './components/navbar';
+@import './components/ui/navbar';
 @import './components/quienes-somos';
 @import './components/redes';
 @import './components/articulos';
 @import './components/galeria';
 @import './components/contacto';
-@import './components/footer';
+@import './components/ui/footer';
 @import './components/article';
 @import './components/legislaciones';
 @import './components/auth/login';
+@import './components/ui/spinner';
+
 
 //Components / edit
 
-@import './components/edit/edit';
+@import './components/edit/sidebar';
 @import './components/edit/article-edit';
+@import './components/edit/nothing-select';

@@ -60,7 +60,11 @@ export const ContactoForm = () => {
                     'success'
                 )
             }, (error) => {
-                console.log(error.text);
+                Swal.fire(
+                    '',
+                    'Hubo un error. Inténtelo de nuevo más tarde.',
+                    'error'
+                )
             });
 
         removeWarningClass();

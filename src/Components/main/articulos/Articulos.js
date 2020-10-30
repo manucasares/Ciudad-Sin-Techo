@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-import { articulos as articulosData} from "../../../data/articulos";
 import { transformToUrl } from "../../../helper/transformStrings";
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
@@ -10,7 +10,9 @@ import { Paginacion } from "./Paginacion";
 
 export const Articulos = () => {
   
-    const [articulos, setArticulos] = useState(articulosData);
+    const { arts } = useSelector( state => state.crud );
+
+    const [articulos, setArticulos] = useState(arts);
     
     const artsPerPage = 2;
     
@@ -29,6 +31,7 @@ export const Articulos = () => {
 
                     //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
+
 
     }, [setCurrentArts ,artsPerPage, currentPage, articulos])
 
@@ -60,15 +63,13 @@ export const Articulos = () => {
 
     // Responsive paginación
     useEffect(() => {
-        
         if(window.innerWidth < 500) {
             setPagesShownLength(6);
         }
-        
     }, [pagesShownLength])
 
 
-
+    console.log(currentArts);
 
     return (
         <div className="articulos__container">
@@ -86,26 +87,26 @@ export const Articulos = () => {
                         (articulos.length === 0)
 
                             ? <p className="articulos__not-results-found"> No se encontraron resultados para la búsqueda. </p>
-                            : currentArts.map(({img,titulo, subtitulo, id}) => (
+                            : currentArts.map(({ title, subtitle, id }) => (
                                 <Link
-                                    to={`/article/${transformToUrl(titulo)}`}
+                                    to={`/article/${transformToUrl(title)}`}
                                     className="articulos__articulo mb-5 pointer"
                                     key={id}
                                 >
-                                    <img
+                                    {/* <img
                                         className="img"
-                                        src={require(`../../../assets/${img}`)}
+                                        // src={require(`../../../assets/${img}`)}
                                         alt={img}
-                                    />
+                                    /> */}
 
                                     <div className="articulos__text-container">
 
                                         <p className="articulos__articulo-titulo mb-1">
-                                            {titulo}
+                                            {title}
                                         </p>
 
                                         <p className="articulos__articulo-descripcion">
-                                            {subtitulo}
+                                            {subtitle}
                                         </p>
 
                                     </div>

@@ -72,22 +72,6 @@
     }
 }
 
-// *************  NOTHING SELECTED  *************
-
-.edit__nothing-container {
-    align-items: center;
-    background-color: darken($color: $primary, $amount: 25);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-
-    p{
-        text-align: center;
-    }
-
-}
 
 // **************  EDIT ARTICLES ************
 

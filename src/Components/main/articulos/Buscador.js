@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
-import { articulos } from '../../../data/articulos'
+import { useSelector } from 'react-redux'
 import { useForm } from '../../../hooks/useForm'
 import { getArticlesBySearch } from '../../../selectors/getArticlesBySearch'
 
 export const Buscador = ({setArticulos, setCurrentPage}) => {
+
+    const { arts } = useSelector( state => state.crud );
+
 
     const [{search}, handleInputChange] = useForm({
         search: ''
@@ -12,15 +15,16 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
     
     useEffect(() => {
         if( !search.trim() ){
-            setArticulos(articulos);
+            setArticulos(arts);
             return;
         }
     
-        const articlesSearch = getArticlesBySearch(search);
+
+        const articlesSearch = getArticlesBySearch(arts, search);
         
         setCurrentPage(1);
         setArticulos(articlesSearch);
-    }, [search, setArticulos, setCurrentPage])
+    }, [search, setArticulos, setCurrentPage, arts])
 
     
     return (

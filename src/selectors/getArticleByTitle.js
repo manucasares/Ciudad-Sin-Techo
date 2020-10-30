@@ -1,7 +1,7 @@
-import { articulos } from "../data/articulos"
 
-export const getArticleByTitle = (titulo) => {
+
+export const getArticleByTitle = (arts, title) => {
     
-    return articulos.find(art => art.titulo === titulo);
+    return arts.find(art => art.title === title);
 
 }

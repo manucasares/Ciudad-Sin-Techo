@@ -1,0 +1,28 @@
+.nothing__arrow {
+    background-color: darken($color: $primary, $amount: 25);
+    padding: 10px;
+}
+
+
+
+.edit__nothing-container {
+
+    background-color: darken($color: $primary, $amount: 25);
+    color: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+
+
+.edit__nothing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    p{
+        text-align: center;
+    }
+}

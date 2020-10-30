@@ -1,16 +1,38 @@
-import React from 'react'
-import { useForm } from '../../hooks/useForm'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { startLoginEmailPassword } from '../../actions/auth';
+import { useForm } from '../../hooks/useForm';
+
 
 export const LoginScreen = () => {
+    const dispatch = useDispatch();
 
-    const [formValues, handleInputChange] = useForm({email:'', password:''});
+    const [formValues, handleInputChange] = useForm({
+        email: 'ciudadsintechofirebase@gmail.com',
+        password: 'hola123'
+    });
+
     const {email, password} = formValues;
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        // VERIFICACION MOMENTANEA 
+        if( !email.trim() || !password.trim() ){
+            return;
+        }
+
+
+        dispatch(
+            startLoginEmailPassword(email, password)
+        );
+    } 
 
     return (
         <div className=" login__container">
-            <h3 className='login__titulo'>Login</h3>
-            <form>
 
+            <form onSubmit={handleLogin}>
                 <input 
                     type='text'
                     placeholder='email'

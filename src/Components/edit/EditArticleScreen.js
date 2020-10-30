@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setActiveArt } from "../../actions/crud";
 import { useForm } from "../../hooks/useForm";
 import { EditArticleNavBar } from "./EditArticleNavBar";
 
-export const EditArticleScreen = ({ setSidebarShown }) => {
-    const [formValues, handleInputChange] = useForm({
-        date: "",
-        author: "",
-        title: "",
-        subtitle: "",
-        text: "",
-    });
 
-    const {title, subtitle, text} = formValues;
+export const EditArticleScreen = ({ setSidebarShown }) => {
+    
+    const dispatch = useDispatch();
+    const { active } = useSelector( state => state.crud );
+
+
+    const [formValues, handleInputChange] = useForm({...active});
+
+    
+    // date y author en navbar //       
+    const {title, subtitle, body } = formValues;
+
+
+    // cambiamos el active al modificar el formulario
+    useEffect( () => {
+
+        dispatch( setActiveArt(formValues) );
+
+    }, [formValues])
+
+
 
     return (
         <div className="article-edit__main-content">
@@ -31,27 +46,27 @@ export const EditArticleScreen = ({ setSidebarShown }) => {
                     onChange={handleInputChange}
                 />
 
-                <input
+                <textarea
                     type="text"
                     placeholder="Subtitulo / Descripción"
-                    className="article-edit__subtitle-input"
+                    className="article-edit__subtitle-textarea"
                     name="subtitle"
                     value={subtitle}
                     onChange={handleInputChange}
-                />
+                ></textarea>
 
                 <div className="article-edit__image">
                     <img
                         src="https://img.freepik.com/foto-gratis/campo-lavanda-al-atardecer-gran-paisaje-verano_129479-48.jpg?size=626&ext=jpg"
-                        alt="foto"
+                        // alt="foto"
                     />
                 </div>
 
                 <textarea
                     placeholder="Texto del Articulo"
                     className="article-edit__textarea"
-                    name="text"
-                    value={text}
+                    name="body"
+                    value={body}
                     onChange={handleInputChange}
                 ></textarea>
             </div>
