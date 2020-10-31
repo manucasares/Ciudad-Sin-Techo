@@ -6,10 +6,11 @@ import { Buscador } from "../main/articulos/Buscador";
 import { startLogout } from "../../actions/auth";
 import { startNewArticle } from "../../actions/crud";
 import { SelectArticles } from "./SelectArticles";
+import { hideSidebar } from "../../actions/ui";
 
 
 
-export const Sidebar = ({ setSidebarShown }) => {
+export const Sidebar = () => {
 
     const dispatch = useDispatch();
     const { arts } = useSelector( state => state.crud );
@@ -56,12 +57,6 @@ export const Sidebar = ({ setSidebarShown }) => {
         }
     }, [currentPage, articulos, artsPerPage]);
 
-    //handleSidebarShow: para sacar y poner el sidebar
-    //PARA SACAR Y PONER EL SIDEBAR, SERÍA OPTIMO DEJAR ESTO EN REDUX
-    const handleSidebarShow = () => {
-        setSidebarShown( prevState => ( !prevState ));
-    };
-    
 
     const handleLogout = () => {
         dispatch(
@@ -71,7 +66,7 @@ export const Sidebar = ({ setSidebarShown }) => {
        
     
     const handleNewArticle = () => {
-        handleSidebarShow();
+        dispatch(hideSidebar())
 
         dispatch(
             startNewArticle()
@@ -96,7 +91,7 @@ export const Sidebar = ({ setSidebarShown }) => {
 
                 <button
                     className="edit__sidebar-arrow link"
-                    onClick={handleSidebarShow}
+                    onClick={() => dispatch( hideSidebar() )}
                 >
                     <i className="fas fa-arrow-left"></i>
                 </button>
@@ -104,7 +99,6 @@ export const Sidebar = ({ setSidebarShown }) => {
 
             <div
                 className="edit__new-entry pointer"
-                onClick={handleSidebarShow}
                 onClick = { handleNewArticle }
             >
                 <i className="far fa-calendar-plus fa-3x "></i>
@@ -127,7 +121,6 @@ export const Sidebar = ({ setSidebarShown }) => {
             )}
 
             <SelectArticles
-                handleSidebarShow={handleSidebarShow}
                 currentArts={currentArts}
             />
 

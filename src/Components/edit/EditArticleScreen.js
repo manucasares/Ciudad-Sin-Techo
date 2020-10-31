@@ -6,14 +6,22 @@ import { useForm } from "../../hooks/useForm";
 import { EditArticleNavBar } from "./EditArticleNavBar";
 
 
-export const EditArticleScreen = ({ setSidebarShown }) => {
+export const EditArticleScreen = () => {
     
     const dispatch = useDispatch();
     const { active } = useSelector( state => state.crud );
 
 
-    const [formValues, handleInputChange] = useForm({...active});
+    const [formValues, handleInputChange, reset] = useForm({...active});
 
+    // cambiamos el formValues cuando cambia el active
+    useEffect( () => {
+        if(formValues.id !== active.id){
+            reset(active);
+            console.log('entró')
+        }
+    }, [active] )
+    // console.log(formValues)
     
     // date y author en navbar //       
     const {title, subtitle, body } = formValues;
@@ -31,7 +39,6 @@ export const EditArticleScreen = ({ setSidebarShown }) => {
     return (
         <div className="article-edit__main-content">
             <EditArticleNavBar
-                setSidebarShown={setSidebarShown}
                 formValues={formValues}
                 handleInputChange={handleInputChange}
             />

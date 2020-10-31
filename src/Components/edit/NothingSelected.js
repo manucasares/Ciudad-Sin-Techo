@@ -1,10 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleSidebar } from '../../actions/ui';
 
-export const NothingSelected = ({setSidebarShown}) => {
-
-    const handleSidebarShow = () => {
-        setSidebarShown(prevState => ( !prevState ));
-    };
+export const NothingSelected = () => {
+    const dispatch = useDispatch();
 
     return (
 
@@ -12,7 +11,7 @@ export const NothingSelected = ({setSidebarShown}) => {
 
             <button
                 className="link arrow nothing__arrow"
-                onClick={handleSidebarShow}
+                onClick={ () => dispatch(toggleSidebar()) }
             >
                 <i className="fas fa-arrow-left"></i>
             </button>

@@ -1,16 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveArt } from "../../actions/crud";
+import { hideSidebar } from "../../actions/ui";
 import { getArticleById } from "../../selectors/getArticleById";
 
 
-export const SelectArticles = ({handleSidebarShow, currentArts}) => {
+export const SelectArticles = ({ currentArts }) => {
 
     const dispatch = useDispatch();
     const { arts } = useSelector( state => state.crud );
 
     const handleOpenArt = (id) => {
-        handleSidebarShow();
+        dispatch(hideSidebar());
 
         const selectedArt = getArticleById(arts, id)
 

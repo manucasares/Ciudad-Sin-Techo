@@ -3,21 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
 import { addNewArticle, startDeletingArt } from "../../actions/crud";
+import { showSidebar, toggleSidebar } from "../../actions/ui";
 
 
-export const EditArticleNavBar = ({ setSidebarShown, formValues, handleInputChange }) => {
+export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
 
     const dispatch = useDispatch();
     const { active } = useSelector( state => state.crud );
 
     const { title, subtitle, body, date, author } = formValues;
 
-
-    const handleSidebarShow = () => {
-        setSidebarShown(prevState => ( !prevState ));
-    };
-    
-    
     const handleSave = () => {
 
         if( !title.trim() || !subtitle.trim() || !body.trim() || !date.trim() || !author.trim() ) {
@@ -55,7 +50,7 @@ export const EditArticleNavBar = ({ setSidebarShown, formValues, handleInputChan
         }).then( (res) => {
             
             if( res.isConfirmed ) {
-                setSidebarShown(true);
+                dispatch(showSidebar())
                 dispatch( startDeletingArt(active.id) );
             }
 
@@ -67,7 +62,7 @@ export const EditArticleNavBar = ({ setSidebarShown, formValues, handleInputChan
     return (
         <div className="article-edit__appbar">
 
-            <button className="link arrow" onClick={handleSidebarShow}>
+            <button className="link arrow" onClick={() => dispatch(toggleSidebar())}>
                 <i className="fas fa-arrow-left"></i>
             </button>
 
