@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import { db } from "../firebase/firebaseConfig";
+import { imgUpload } from "../helper/imgUpload";
 import { types } from "../types/types";
 
 
@@ -73,15 +74,11 @@ export const startLoadingArticles = () => {
 
 export const startDeletingArt = ( id ) => {
 
-
-
     return ( dispatch, getState ) => {
         
         const { arts } = getState().crud;
 
         const arts_left = arts.filter( art => art.id !== id );
-
-
 
         db.collection('Articulos').doc(id).delete()
 
@@ -96,26 +93,74 @@ export const startDeletingArt = ( id ) => {
     } 
 }
 
+export const startUpdateArticle = ( art ) => {
 
-    
-// export const startUploadArticle = () => {
+    return async( dispatch ) => {
 
-//     return async( dispatch) => {
+        const noteToFirestore = { ...art };
+        delete noteToFirestore.id;
 
-//         const coleccion = await db.collection('Articulos')
-//         console.log(coleccion);
-//     }
-// }
+        try {
+            await db.doc(`Articulos/${art.id}`).update( noteToFirestore );
+            
+            dispatch( updateArticle(art) );
+
+            Swal.fire(
+                '',
+                'Los campos se han actualizado correctamente.',
+                'success'
+            )
+        } catch {
+            Swal.fire(
+                '',
+                'Ha ocurrido un error. Inténtelo más tarde.',
+                'error'
+            )
+        }           
+    }
+}
+
+export const startUploadImg = ( img ) => {
+
+    return async( dispatch, getState ) => {
+
+        const { active,     arts } = getState().crud;
+
+        Swal.fire({
+            title: 'Subiendo imagen...',
+            text: 'Por favor espere...',
+            allowOutsideClick: false,
+            willOpen : () => {
+                Swal.showLoading();
+            }
+        })
+
+        const url = await imgUpload( img );
+
+        active.url = url;
+
+        // await dispatch( startUpdateArticle(active) );
+        dispatch( updateArticle(arts) )
+
+        Swal.close();
+    }
+}
 
 
 // ============= SINCRONAS ============= //
 
 export const addArticle = ( art, id ) => ({
+
     type: types.crudAddNewArt,
     payload: {
         ...art,
         id
     }
+})
+
+export const updateArticle = ( art ) => ({
+    type: types.crudUpdateArt,
+    payload: art
 })
 
 export const setActiveArt = ( art ) => ({
@@ -132,9 +177,3 @@ export const deleteArt = ( arts ) => ({
     type: types.crudDelete,
     payload: arts
 })
-
-// export const changeArticle = ( id ) => ({
-//     type: types.crudUpdateArt,
-//     payload: id
-// })
-
