@@ -1,23 +1,32 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+
+
 import { setActiveArt } from "../../actions/crud";
 import { hideSidebar } from "../../actions/ui";
+import { compareChanges } from "../../helper/compareChanges";
 import { getArticleById } from "../../selectors/getArticleById";
+
+
 
 
 export const SelectArticles = ({ currentArts }) => {
 
     const dispatch = useDispatch();
-    const { arts } = useSelector( state => state.crud );
+    const { arts, active } = useSelector( state => state.crud );
 
     const handleOpenArt = (id) => {
-        dispatch(hideSidebar());
+        dispatch( hideSidebar() );
 
-        const selectedArt = getArticleById(arts, id)
+        const selectedArt = getArticleById(arts, id);
 
-        dispatch( setActiveArt( selectedArt ) )
+        if ( !active ) {
+            dispatch( setActiveArt(selectedArt) );
+        } else {
+            compareChanges(arts, active);
+        }
     }
-
 
     return (
         <div className="edit__articles">

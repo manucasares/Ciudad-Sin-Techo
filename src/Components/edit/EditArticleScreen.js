@@ -1,36 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 
 import { setActiveArt } from "../../actions/crud";
 import { useForm } from "../../hooks/useForm";
 import { EditArticleNavBar } from "./EditArticleNavBar";
+import { getArticleById } from "../../selectors/getArticleById";
+
 
 
 export const EditArticleScreen = () => {
     
     const dispatch = useDispatch();
-    const { active } = useSelector( state => state.crud );
+    const { active, arts } = useSelector( state => state.crud );
 
 
     const [formValues, handleInputChange, reset] = useForm({...active});
+    
+    const {title, subtitle, body, url, id } = formValues;
+
 
     // cambiamos el formValues cuando cambia el active
     useEffect( () => {
-        if(formValues.id !== active.id){
+
+        // convertimos formValues en active al cambiar de articulo
+        if (id !== active.id || url !== active.url) {
+            
             reset(active);
         }
 
     }, [active, formValues, reset, dispatch] )
     
 
-
-    // date y author en navbar //       
-    const {title, subtitle, body } = formValues;
-
-
+    
+    
     // cambiamos el active al modificar el formulario
     useEffect( () => {
-
         dispatch( setActiveArt(formValues) );
 
     }, [formValues, dispatch])
@@ -65,8 +70,13 @@ export const EditArticleScreen = () => {
 
                 <div className="article-edit__image">
                     <img
-                        src="https://img.freepik.com/foto-gratis/campo-lavanda-al-atardecer-gran-paisaje-verano_129479-48.jpg?size=626&ext=jpg"
-                        alt="foto"
+                        src={
+                            ( url )
+                                ? url
+                                : 'https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/44307962_969821133228878_6542943905892007936_o.jpg?_nc_cat=103&ccb=2&_nc_sid=e3f864&_nc_ohc=53XESV1NmdMAX9BBFPG&_nc_ht=scontent-eze1-1.xx&oh=a68c9ee901c9b2fffb914d002a932577&oe=5FC416F2'
+
+                        }
+                        // alt="foto"
                     />
                 </div>
 

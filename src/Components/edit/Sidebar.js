@@ -7,13 +7,14 @@ import { startLogout } from "../../actions/auth";
 import { startNewArticle } from "../../actions/crud";
 import { SelectArticles } from "./SelectArticles";
 import { hideSidebar } from "../../actions/ui";
+import { compareChanges } from "../../helper/compareChanges";
 
 
 
 export const Sidebar = () => {
 
     const dispatch = useDispatch();
-    const { arts } = useSelector( state => state.crud );
+    const { arts, active } = useSelector( state => state.crud );
 
     const [articulos, setArticulos] = useState(arts);
 
@@ -66,11 +67,15 @@ export const Sidebar = () => {
        
     
     const handleNewArticle = () => {
-        dispatch(hideSidebar())
 
-        dispatch(
-            startNewArticle()
-        );
+        if ( !active ) {
+            dispatch(hideSidebar())
+
+            dispatch(
+                startNewArticle()
+            );
+        }
+
     }
 
 
