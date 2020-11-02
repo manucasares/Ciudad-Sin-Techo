@@ -7,7 +7,6 @@ import { startLogout } from "../../actions/auth";
 import { startNewArticle } from "../../actions/crud";
 import { SelectArticles } from "./SelectArticles";
 import { hideSidebar } from "../../actions/ui";
-import { compareChanges } from "../../helper/compareChanges";
 
 
 
@@ -68,14 +67,10 @@ export const Sidebar = () => {
     
     const handleNewArticle = () => {
 
-        if ( !active ) {
-            dispatch(hideSidebar())
+        dispatch( hideSidebar() );
 
-            dispatch(
-                startNewArticle()
-            );
-        }
-
+        dispatch( startNewArticle() );
+       
     }
 
 
@@ -109,7 +104,6 @@ export const Sidebar = () => {
                 <i className="far fa-calendar-plus fa-3x "></i>
                 <p
                     className="mt-5"
-                    onClick={handleNewArticle}
                 >
                     Nuevo articulo
                 </p>

@@ -17,15 +17,13 @@ export const SelectArticles = ({ currentArts }) => {
     const { arts, active } = useSelector( state => state.crud );
 
     const handleOpenArt = (id) => {
+        
         dispatch( hideSidebar() );
 
         const selectedArt = getArticleById(arts, id);
-
-        if ( !active ) {
-            dispatch( setActiveArt(selectedArt) );
-        } else {
-            compareChanges(arts, active);
-        }
+        
+        dispatch( setActiveArt(selectedArt) );
+        
     }
 
     return (
