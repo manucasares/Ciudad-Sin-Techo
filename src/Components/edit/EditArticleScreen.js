@@ -18,11 +18,12 @@ export const EditArticleScreen = () => {
     useEffect( () => {
         if(formValues.id !== active.id){
             reset(active);
-            console.log('entró')
         }
-    }, [active] )
-    // console.log(formValues)
+
+    }, [active, formValues, reset, dispatch] )
     
+
+
     // date y author en navbar //       
     const {title, subtitle, body } = formValues;
 
@@ -32,7 +33,7 @@ export const EditArticleScreen = () => {
 
         dispatch( setActiveArt(formValues) );
 
-    }, [formValues])
+    }, [formValues, dispatch])
 
 
 
@@ -65,7 +66,7 @@ export const EditArticleScreen = () => {
                 <div className="article-edit__image">
                     <img
                         src="https://img.freepik.com/foto-gratis/campo-lavanda-al-atardecer-gran-paisaje-verano_129479-48.jpg?size=626&ext=jpg"
-                        // alt="foto"
+                        alt="foto"
                     />
                 </div>
 
