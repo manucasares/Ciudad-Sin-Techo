@@ -17,7 +17,7 @@ export const ArticleScreen = () => {
 
     console.log(art);
 
-    const {date, author, subtitle, body} = art;
+    const {date, author, subtitle, body, url} = art;
 
 
     return (
@@ -28,17 +28,17 @@ export const ArticleScreen = () => {
                 <p>{author}</p>
             </div>
 
-            <h2 className="titulo mt-5">{title}</h2>
+            <h2 className="titulo mt-5">{art.title}</h2>
 
 
             <p className="subtitulo">
                 {subtitle}
             </p>
 
-            {/* <img
-                src={require(`../../assets/${img}`)}
+            <img
+                src={url}
                 alt="foto1"
-            /> */}
+            />
 
             <p className="main-text">
                 {body}

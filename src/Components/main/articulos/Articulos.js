@@ -87,17 +87,17 @@ export const Articulos = () => {
                         (articulos.length === 0)
 
                             ? <p className="articulos__not-results-found"> No se encontraron resultados para la búsqueda. </p>
-                            : currentArts.map(({ title, subtitle, id }) => (
+                            : currentArts.map(({ title, subtitle, id, url }) => (
                                 <Link
                                     to={`/article/${transformToUrl(title)}`}
                                     className="articulos__articulo mb-5 pointer"
                                     key={id}
                                 >
-                                    {/* <img
+                                    <img
                                         className="img"
-                                        // src={require(`../../../assets/${img}`)}
-                                        alt={img}
-                                    /> */}
+                                        src={ url }
+                                        alt={ title }
+                                    />
 
                                     <div className="articulos__text-container">
 

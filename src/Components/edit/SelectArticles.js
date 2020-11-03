@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 import { setActiveArt } from "../../actions/crud";
 import { hideSidebar } from "../../actions/ui";
-import { compareChanges } from "../../helper/compareChanges";
 import { getArticleById } from "../../selectors/getArticleById";
 
 
@@ -14,7 +13,7 @@ import { getArticleById } from "../../selectors/getArticleById";
 export const SelectArticles = ({ currentArts }) => {
 
     const dispatch = useDispatch();
-    const { arts, active } = useSelector( state => state.crud );
+    const { arts } = useSelector( state => state.crud );
 
     const handleOpenArt = (id) => {
         
@@ -30,20 +29,20 @@ export const SelectArticles = ({ currentArts }) => {
         <div className="edit__articles">
             {
                 (currentArts.length === 0)
-                    ? <p className="edit__article-title"> No se encontraron resultados para la búsqueda. </p>
+                    ? <p className="edit__article-title "> No se encontraron resultados para la búsqueda. </p>
                     : currentArts.map(
-                        ({ id, date, title, subtitle, img}) => (
+                        ({ id, date, title, subtitle, url}) => (
                             <div 
                                 key={id} 
-                                className="edit__article"
+                                className="edit__article d-flex-between"
                                 onClick={ () => handleOpenArt(id)}
                             >
 
-                                {/* <img
+                                <img
                                     className="edit__article-picture"
-                                    src={require(`../../assets/${img}`)}
+                                    src={url}
                                     alt={title}
-                                /> */}
+                                />
 
                                 <div className="edit__article-body">
                                     <p className="edit__article-title">{title}</p>

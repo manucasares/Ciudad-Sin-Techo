@@ -14,15 +14,14 @@ export const crudReducer = ( state = initialState, action ) => {
             return {
                 
                 arts: [ action.payload, ...state.arts ],
-                active: action.payload
+                active: null
             }
 
         case types.crudActiveArt:
             return {
                 ...state,
-                active: {
-                    ...action.payload
-                }
+                active: action.payload
+                
             }
 
         case types.crudLoadArts:
@@ -33,12 +32,12 @@ export const crudReducer = ( state = initialState, action ) => {
         
         case types.crudUpdateArt:
             return {
-                ...state,
                 arts: state.arts.map( art => (
                     (art.id === action.payload.id)
                         ? action.payload
                         : art
-                ))
+                )),
+                active: null
             }
         
         case types.crudDelete:

@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import { db } from "../firebase/firebaseConfig";
 import { imgUpload } from "../helper/imgUpload";
 import { types } from "../types/types";
+import { showSidebar } from "./ui";
 
 
 // ============= ASINCRONAS ============= //
@@ -10,11 +11,24 @@ export const startNewArticle = () => {
 
     return ( dispatch ) => {
 
+        const date = new Date();
+
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDay() + 1;
+
+        if ( month < 10 ) {
+            month = '0' + month;
+        }
+
+        if ( day < 10 ) {
+            day = '0' + day;
+        }
+        
+
         const newArticle = {
-            // GUARDA CON ESTO //
-            // id: null,
             title: '',
-            date: '',
+            date: `${year}-${month}-${day}`,
             author: '',
             subtitle: '',
             body: '',
@@ -26,19 +40,22 @@ export const startNewArticle = () => {
 
 export const addNewArticle = ( art ) => {
 
-    // const [...arts, ] = art;
-
     return ( dispatch ) => {
 
         db.collection('Articulos').add( art )
             .then( (res) => {
-                dispatch( addArticle( art, res.id ) )
-
-                Swal.fire(
-                    '',
-                    'El artículo ha sido creado exitósamente!',
-                    'success'
-                )
+                
+                Swal.fire({
+                    text:  'El artículo ha sido creado exitósamente!',
+                    icon: "success",
+                    allowOutsideClick: false,
+                    showConfirmButton: true,
+                }).then( () => {
+                    
+                    dispatch( addArticle( art, res.id ) )
+                    dispatch( showSidebar() );
+                    
+                })
 
             })
             .catch( () => {
@@ -103,13 +120,16 @@ export const startUpdateArticle = ( art ) => {
         try {
             await db.doc(`Articulos/${art.id}`).update( noteToFirestore );
             
-            dispatch( updateArticle(art) );
 
-            Swal.fire(
-                '',
-                'Los campos se han actualizado correctamente.',
-                'success'
-            )
+            Swal.fire({
+                text:  'Los campos se han actualizado correctamente.',
+                icon: "success",
+                allowOutsideClick: false,
+                showConfirmButton: true,
+            }).then( () => {
+                dispatch( updateArticle(art) );
+                dispatch( showSidebar() );
+            })
         } catch {
             Swal.fire(
                 '',
@@ -124,7 +144,7 @@ export const startUploadImg = ( img ) => {
 
     return async( dispatch, getState ) => {
 
-        const { active,     arts } = getState().crud;
+        const { active } = getState().crud;
 
         Swal.fire({
             title: 'Subiendo imagen...',
@@ -139,8 +159,7 @@ export const startUploadImg = ( img ) => {
 
         active.url = url;
 
-        // await dispatch( startUpdateArticle(active) );
-        dispatch( updateArticle(arts) )
+        dispatch( setActiveArt(active) );
 
         Swal.close();
     }

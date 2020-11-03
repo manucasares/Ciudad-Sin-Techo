@@ -109,24 +109,26 @@ export const Sidebar = () => {
                 </p>
             </div>
 
-            <Buscador
-                setArticulos={setArticulos}
-                setCurrentPage={setCurrentPage}
-            />
-
-            {/* Desabilita el boton si nos encontramos en la paginacion limite */}
-            {sortUp && (
-                <i className="fas fa-sort-up fa-2x" onClick={() => setCurrentPage(p => p - 1)}></i>
-            )}
-
-            <SelectArticles
-                currentArts={currentArts}
-            />
-
-            {/* Desabilita el boton si nos encontramos en la paginacion limite */}
-            {sortDown && (
-                <i className="fas fa-sort-down fa-2x" onClick={() => setCurrentPage(p => p + 1)}></i>
-            )}
+            <div className='container'>
+                <Buscador
+                    setArticulos={setArticulos}
+                    setCurrentPage={setCurrentPage}
+                />
+    
+                {/* Desabilita el boton si nos encontramos en la paginacion limite */}
+                {sortUp && (
+                    <i className="fas fa-sort-up fa-2x" onClick={() => setCurrentPage(p => p - 1)}></i>
+                )}
+    
+                <SelectArticles
+                    currentArts={currentArts}
+                />
+    
+                {/* Desabilita el boton si nos encontramos en la paginacion limite */}
+                {sortDown && (
+                    <i className="fas fa-sort-down fa-2x" onClick={() => setCurrentPage(p => p + 1)}></i>
+                )}
+            </div>
         </aside>
     );
 };

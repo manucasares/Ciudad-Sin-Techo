@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
-import { addNewArticle, startDeletingArt, startUpdateArticle, startUploadImg } from "../../actions/crud";
-import { showSidebar, toggleSidebar } from "../../actions/ui";
+import { addNewArticle, setActiveArt, startDeletingArt, startUpdateArticle, startUploadImg } from "../../actions/crud";
+import { showSidebar  } from "../../actions/ui";
+import { getArticleById } from "../../selectors/getArticleById";
 
 
 export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
@@ -14,19 +15,44 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
     // const ui = useSelector( state => state.ui );
 
 
-    const { title, subtitle, body, date, author } = formValues;
+    const { title, subtitle, body, date, author, url } = formValues;
 
 
     const handleArrow = () => {
 
-        dispatch( toggleSidebar() )
+        const initialActiveState = getArticleById(arts, active.id);
+                
+        const isNotEmptyArt = Object.values(formValues).some(val => val.trim() && val !== date);
+
+        if( isNotEmptyArt && JSON.stringify(active) !== JSON.stringify(initialActiveState) ) {
+            
+
+            Swal.fire({
+                title: 'Hay cambios sin guardar!',
+                text: 'Si salis sin guardar los cambios se borrarán permanentemente.',
+                icon: 'warning',
+                showConfirmButton: true,
+                confirmButtonText: 'Salir',
+                showCancelButton: true,
+                allowOutsideClick: false,
+            }).then( (res) => {
+                if( res.isConfirmed ) {
+                    dispatch( showSidebar() )
+                    dispatch( setActiveArt(null) )
+                } 
+            })
+
+        } else {
+            dispatch( showSidebar() )
+            dispatch( setActiveArt(null) )
+        }
 
     }
 
     const handleSave = () => {
 
         // MANEJAR ERROR DE TITULOS REPETIDOS //
-        const titleRepeted = arts.some( (art) => art.title === title)
+        const titleRepeted = arts.some( (art) => art.title === title && art.id !== formValues.id)
 
         if( titleRepeted ) {
             Swal.fire(
@@ -39,7 +65,7 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
         }
 
         // VALIDACIÓN CAMPOS VACIOS //
-        if( !title.trim() || !subtitle.trim() || !body.trim() || !date.trim() || !author.trim() ) {
+        if( !title.trim() || !subtitle.trim() || !body.trim() || !date.trim() || !author.trim() || !url ) {
             Swal.fire(
                 '',
                 'Completa todos los campos.',
@@ -58,11 +84,13 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
         else {
             dispatch( addNewArticle(active) );
         }
+
     }
 
     const handlePictureUpload = () => {
         document.querySelector('#inputFile').click();
     }
+    
     const handleFileChange = (e) => {
         const img = e.target.files[0];
 
