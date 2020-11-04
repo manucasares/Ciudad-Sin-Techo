@@ -27,6 +27,9 @@ export const ArticleScreen = () => {
 
     useEffect(() => {
         body = body.split('<br>');
+
+        if(typeof body === 'object'){
+        }
     }, [body])
 
    
@@ -56,9 +59,9 @@ export const ArticleScreen = () => {
                 {
                     (typeof body === 'object')
                     &&
-                    body.map( p => (
-                        <p> {p} </p>
-                    ))
+                    body.map( p => {
+                        console.log(p);
+                    })
                 }
             </div>
         </div>

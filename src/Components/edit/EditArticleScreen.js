@@ -16,22 +16,26 @@ export const EditArticleScreen = () => {
 
     const [formValues, handleInputChange, reset] = useForm({...active});
     
-    const {title, subtitle, body, url, id } = formValues;
+    const {title, subtitle, url, id } = formValues;
+    let { body } = formValues;
+
+
+
+    useEffect(() => {
+        body = body.split('<br>');
+    }, [body])
+
+
 
 
     // cambiamos el formValues cuando cambia el active
     useEffect( () => {
-
-
         // convertimos formValues en active al cambiar de articulo
         if (id !== active.id || url !== active.url) {
             reset(active);
         }
 
     }, [active, formValues, reset, dispatch, id, url] )
-    
-
-    
     
     // cambiamos el active al modificar el formulario
     useEffect( () => {
