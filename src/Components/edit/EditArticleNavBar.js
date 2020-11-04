@@ -50,7 +50,6 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
     }
 
     const handleSave = () => {
-
         // MANEJAR ERROR DE TITULOS REPETIDOS //
         const titleRepeted = arts.some( (art) => art.title === title && art.id !== formValues.id)
 
@@ -84,7 +83,6 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
         else {
             dispatch( addNewArticle(active) );
         }
-
     }
 
     const handlePictureUpload = () => {
