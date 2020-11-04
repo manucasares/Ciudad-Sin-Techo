@@ -9,14 +9,16 @@ import { Galeria } from './Galeria';
 
 
 export const MainScreen = () => {
+
+ 
     return (
-        <>
+        <div className="animate__animated animate__fadeIn">
             <Header />
-            <QuienesSomos />
+            <QuienesSomos/>
             <Redes />
             <Articulos/>
             <Galeria />
             <Contacto />
-        </>
+        </div>
     )
 }

@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 
-export const uiReducer = (state = true, action) => {
+export const uiReducer = ( state = true, action ) => {
     
     switch (action.type) {
         case types.uiShowSidebar:

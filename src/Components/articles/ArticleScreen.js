@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
+
+
 import { Redirect, useParams } from 'react-router-dom';
 import { transformToString } from '../../helper/transformStrings';
 import { getArticleByTitle } from '../../selectors/getArticleByTitle';
+
+
+
 export const ArticleScreen = () => {
     
     const { arts } = useSelector( state => state.crud );
@@ -11,17 +16,24 @@ export const ArticleScreen = () => {
 
     const art = getArticleByTitle( arts, transformToString(title) );
     
-    if( !art ) {
-        return <Redirect to="/" />
-    }
+    // if( !art ) {
+    //     return <Redirect to="/" />
+    // }
 
-    console.log(art);
+    const {date, author, subtitle, url} = art;
+    
+    let { body } = art;
 
-    const {date, author, subtitle, body, url} = art;
+
+    useEffect(() => {
+        body = body.split('<br>');
+    }, [body])
+
+   
 
 
     return (
-        <div className="article container">
+        <div className="article container animate__animated animate__fadeIn">
             <div className="fecha-autor d-flex-between">
                 <p>{date}</p>
                 <i className="fas fa-circle"></i>
@@ -37,12 +49,18 @@ export const ArticleScreen = () => {
 
             <img
                 src={url}
-                alt="foto1"
+                alt={art.title}
             />
 
-            <p className="main-text">
-                {body}
-            </p>
+            <div className="main-text">
+                {
+                    (typeof body === 'object')
+                    &&
+                    body.map( p => (
+                        <p> {p} </p>
+                    ))
+                }
+            </div>
         </div>
     )
 }

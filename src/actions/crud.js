@@ -98,14 +98,17 @@ export const startDeletingArt = ( id ) => {
         const arts_left = arts.filter( art => art.id !== id );
 
         db.collection('Articulos').doc(id).delete()
-
             .then( () => {
 
                 dispatch( deleteArt(arts_left) );
 
             })
             .catch( () => {
-                console.log('error xd');
+                Swal.fire(
+                    '',
+                    'Hubo un error al eliminar este artículo. Posiblemente se deba a su conexión a internet, inténtelo más tarde.',
+                    'error'
+                )
             })
     } 
 }

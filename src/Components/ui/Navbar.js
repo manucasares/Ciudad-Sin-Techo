@@ -1,15 +1,31 @@
-import React, { useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+
+
+import { scrollContext } from '../../context';
+
 
 export const Navbar = () => {
 
+    const { nodes } = useContext(scrollContext)
+
+    const { qs, blog, contacto } = nodes;
+
     const nav_responsive = useRef();
+
 
     const handleNavbar = () => {
         nav_responsive.current.classList.toggle('show');
     }
 
+    const handleScroll = (node) => {
+        node.scrollIntoView({block: "start", behavior: "smooth"});
+    }
+    
+
+
     return (
+
         <div className="navbar">
             <nav className="navbar-container">
                 <div className="logo-bars">
@@ -30,13 +46,14 @@ export const Navbar = () => {
                     ref={nav_responsive}  
                     className="nav-items"
                 >
-                    <p>¿Quiénes somos?</p>
-                    <p>Blog</p>
+                    <p onClick={ () => handleScroll(qs) } > ¿Quiénes somos? </p>
+                    <p onClick={ () => handleScroll(blog) } >Blog</p>
 
                     <Link to="/legislaciones" >
                         <p>Legislaciones</p>
                     </Link>
-                    <p>Contacto</p>
+
+                    <p onClick={ () => handleScroll(contacto)} > Contacto </p>
                 </div>
             </nav>
         </div>

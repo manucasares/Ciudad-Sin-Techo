@@ -23,10 +23,6 @@ export const imgUpload = async( img ) => {
         }
         
     } catch (err) {
-
         Swal.fire( '', 'Hubo un error, intentelo más tarde.', 'error');
-
-        console.log(err);
-
     }
 }

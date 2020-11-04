@@ -1,26 +1,21 @@
 import React from "react";
 
+import { galeria } from "../../data/galeria";
+
 export const Galeria = () => {
-    const imgs = [
-        "foto1",
-        "foto2",
-        "foto3",
-        "foto4",
-        "foto5",
-        "foto6",
-        "foto7",
-        "foto8",
-    ];
+    
 
     return (
         <div className="galeria__container">
-            {imgs.map(img => (
-                <img
-                    src={require(`../../assets/${img}.jpg`)}
-                    alt={img}
-                    key={img}
-                />
-            ))}
+            {
+                galeria.map( ({ id, img, alt }) => (
+                    <img
+                        src={require(`../../assets/${img}.jpg`)}
+                        alt={alt}
+                        key={id}
+                    />
+                ))
+            }
         </div>
     );
 };

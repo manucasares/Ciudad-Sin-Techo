@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { scrollContext } from "../../../context";
 
 
 import { transformToUrl } from "../../../helper/transformStrings";
@@ -11,6 +13,11 @@ import { Paginacion } from "./Paginacion";
 export const Articulos = () => {
   
     const { arts } = useSelector( state => state.crud );
+
+
+    const { setNodes } = useContext(scrollContext)
+    const blog = useRef();
+
 
     const [articulos, setArticulos] = useState(arts);
     
@@ -23,6 +30,10 @@ export const Articulos = () => {
     const [pagesShown, setPagesShown] = useState(totalPages);
     const [pagesShownLength, setPagesShownLength] = useState(9);
     
+
+    useEffect(() => {
+        setNodes( p => ({ ...p, blog: blog.current }));
+    }, [blog])
     
     // Logica CurrentArts
     useEffect(() => {    
@@ -69,10 +80,12 @@ export const Articulos = () => {
     }, [pagesShownLength])
 
 
-    console.log(currentArts);
 
     return (
-        <div className="articulos__container">
+        <div
+            className="articulos__container"
+            ref={blog}
+        >
             <div className="container">
                 <h2 className="articulos__titulo">Blog de Ciudad Sin Techo</h2>
 

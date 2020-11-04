@@ -18,3 +18,9 @@ export const showSidebar = () => ({
 export const hideSidebar = () => ({
     type: types.uiHideSidebar
 })
+
+
+// export const scrollQuienesSomos = (node) => ({
+//     type: types.uiScroll,
+//     payload: node
+// })

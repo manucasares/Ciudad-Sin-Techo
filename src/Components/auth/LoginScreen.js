@@ -30,7 +30,7 @@ export const LoginScreen = () => {
     } 
 
     return (
-        <div className=" login__container">
+        <div className="login__container animate__animated animate__fadeIn">
 
             <form onSubmit={handleLogin}>
                 <input 
@@ -40,7 +40,7 @@ export const LoginScreen = () => {
                     autoComplete='off'
                     className="login__input focus input"  
                     value={ email }
-                    onChange={ handleInputChange }
+                    onChange={handleInputChange}
                 />
 
                 <input 

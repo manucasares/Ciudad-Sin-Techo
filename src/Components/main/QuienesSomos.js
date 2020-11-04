@@ -1,6 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react';
+
+
+import { scrollContext } from '../../context';
+
 
 export const QuienesSomos = () => {
+
+    const { setNodes } = useContext(scrollContext)
+
+
+    const quienesSomos = useRef();
+
 
 
     // efecto parallax
@@ -10,6 +20,12 @@ export const QuienesSomos = () => {
         setOffsetY(window.pageYOffset);
     }
 
+    
+    useEffect(() => {
+        setNodes( p => ({ ...p, qs: quienesSomos.current }));
+    }, [quienesSomos])
+    
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
@@ -18,22 +34,24 @@ export const QuienesSomos = () => {
         }
     }, [])
 
+    
 
     return (
         <div
             className="quienes-somos"
+            ref={quienesSomos}
         >
             <div className="container">
 
                 <img
                     src={require(`../../assets/foto5.jpg`)}
-                    alt="alt de ejemplo"
+                    alt="ciudad sin techo agrupacion"
                 />
     
                 <div
                     className="texto-container"
                     style={{
-                        transform : `translateY( ${offsetY * -0.4 }px )`
+                        transform : `translateY( ${offsetY * -.5 }px )`
                     }}
                 >
                     <h2>¿Quiénes somos?</h2>

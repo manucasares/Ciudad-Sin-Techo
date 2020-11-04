@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 import { Buscador } from "../main/articulos/Buscador";
-import { startLogout } from "../../actions/auth";
-import { startNewArticle } from "../../actions/crud";
 import { SelectArticles } from "./SelectArticles";
-import { hideSidebar } from "../../actions/ui";
-
+import { Panel } from "./Panel";
+import { NewArticle } from "./NewArticle";
 
 
 export const Sidebar = () => {
 
-    const dispatch = useDispatch();
-    const { arts, active } = useSelector( state => state.crud );
+    const { arts } = useSelector( state => state.crud );
 
     const [articulos, setArticulos] = useState(arts);
 
@@ -35,6 +32,7 @@ export const Sidebar = () => {
         //acá puede que sea articulosData en vez de articulos
         setCurrentArts(articulos.slice(indexOfFirstArt, indexOfLastArt));
     }, [setCurrentArts, artsPerPage, currentPage, articulos]);
+
 
     //Lógica disabled botones de paginacion
     useEffect(() => {
@@ -58,56 +56,19 @@ export const Sidebar = () => {
     }, [currentPage, articulos, artsPerPage]);
 
 
-    const handleLogout = () => {
-        dispatch(
-            startLogout()
-        );
-    }
+    // const handleLogout = () => {
+    //     dispatch(
+    //         startLogout()
+    //     );
+    // }
        
-    
-    const handleNewArticle = () => {
-
-        dispatch( hideSidebar() );
-
-        dispatch( startNewArticle() );
-       
-    }
-
 
     return (
         <aside className="edit__sidebar">
-            <div className="edit__sidebar-navbar d-flex-between">
-                <h3 className="mt-5">
-                    <i className="far fa-moon"></i>
-                    <span> Ciudad Sin Techo </span>
-                </h3>
+            
+            <Panel />
 
-                <button
-                    className="link"
-                    onClick={handleLogout}
-                >
-                    Logout
-                </button>
-
-                <button
-                    className="edit__sidebar-arrow link"
-                    onClick={() => dispatch( hideSidebar() )}
-                >
-                    <i className="fas fa-arrow-left"></i>
-                </button>
-            </div>
-
-            <div
-                className="edit__new-entry pointer"
-                onClick = { handleNewArticle }
-            >
-                <i className="far fa-calendar-plus fa-3x "></i>
-                <p
-                    className="mt-5"
-                >
-                    Nuevo articulo
-                </p>
-            </div>
+            <NewArticle />
 
             <div className='container'>
                 <Buscador

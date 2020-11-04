@@ -4,7 +4,7 @@ export const Header = () => {
     return (
         <img
             src={require(`../../assets/header.jpg`)}
-            alt=""
+            alt="ciudad sin techo logo la situacion de calle tambien tiene que ver con vos"
         />
     )
 }

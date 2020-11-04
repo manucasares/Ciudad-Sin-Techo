@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -11,7 +11,7 @@ import { EditArticleNavBar } from "./EditArticleNavBar";
 export const EditArticleScreen = () => {
     
     const dispatch = useDispatch();
-    const { active, arts } = useSelector( state => state.crud );
+    const { active } = useSelector( state => state.crud );
 
 
     const [formValues, handleInputChange, reset] = useForm({...active});
@@ -28,7 +28,7 @@ export const EditArticleScreen = () => {
             reset(active);
         }
 
-    }, [active, formValues, reset, dispatch] )
+    }, [active, formValues, reset, dispatch, id, url] )
     
 
     
@@ -71,11 +71,11 @@ export const EditArticleScreen = () => {
 
                     {
                         (url)
-                            ?  <img
+                            ?   <img
                                     src={ url }
                                     alt={ title }
                                 />
-                            : (<p> Imagen no insertada </p>)
+                            :   <p> Imagen no insertada </p>
                     }
 
                 </div>

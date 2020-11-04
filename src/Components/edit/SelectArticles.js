@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 
 
 import { setActiveArt } from "../../actions/crud";
@@ -9,8 +8,7 @@ import { getArticleById } from "../../selectors/getArticleById";
 
 
 
-
-export const SelectArticles = ({ currentArts }) => {
+export const SelectArticles = React.memo(({ currentArts }) => {
 
     const dispatch = useDispatch();
     const { arts } = useSelector( state => state.crud );
@@ -20,10 +18,9 @@ export const SelectArticles = ({ currentArts }) => {
         dispatch( hideSidebar() );
 
         const selectedArt = getArticleById(arts, id);
-        
         dispatch( setActiveArt(selectedArt) );
-        
     }
+
 
     return (
         <div className="edit__articles">
@@ -31,7 +28,7 @@ export const SelectArticles = ({ currentArts }) => {
                 (currentArts.length === 0)
                     ? <p className="edit__article-title "> No se encontraron resultados para la búsqueda. </p>
                     : currentArts.map(
-                        ({ id, date, title, subtitle, url}) => (
+                        ({ id, date, title, subtitle, url }) => (
                             <div 
                                 key={id} 
                                 className="edit__article d-flex-between"
@@ -57,10 +54,10 @@ export const SelectArticles = ({ currentArts }) => {
                                 </div>
                             </div>
                         )
-                    )
+                )
             }
         </div>
     );
-};
+});
 
 
