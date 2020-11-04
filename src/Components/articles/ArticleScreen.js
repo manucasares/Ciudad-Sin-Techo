@@ -19,6 +19,15 @@ export const ArticleScreen = () => {
         return <Spinner />
     } 
     
+
+
+    // useEffect(() => {
+    //     body = body.split('<br>');
+
+    //     if(typeof body === 'object'){
+    //     }
+    // }, [body])
+
     const art = getArticleByTitle( arts, transformToString(title) );
 
     if( !art ) {
@@ -51,9 +60,12 @@ export const ArticleScreen = () => {
                 alt={art.title}
             />
 
-            <div className="main-text">
-                {body}
-            </div>
+            <textarea
+                className="main-text"
+                value={body}
+                readOnly
+            >
+            </textarea>
         </div>
     )
 }

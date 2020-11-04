@@ -60,7 +60,8 @@ export const EditArticleScreen = () => {
                     name="subtitle"
                     value={subtitle}
                     onChange={handleInputChange}
-                ></textarea>
+                >
+                </textarea>
 
                 <div className="article-edit__image">
 
