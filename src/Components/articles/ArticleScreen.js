@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import { transformToString } from '../../helper/transformStrings';
 import { getArticleByTitle } from '../../selectors/getArticleByTitle';
+import { Spinner } from '../ui/Spinner';
 
 
 
@@ -13,22 +14,20 @@ export const ArticleScreen = () => {
     const { arts } = useSelector( state => state.crud );
 
     const {title} = useParams()
-
+    
+    if (!arts.length) {
+        return <Spinner />
+    } 
+    
     const art = getArticleByTitle( arts, transformToString(title) );
+
+    if( !art ) {
+        return <Redirect to="/" />
+    }
+
+    const {date, author, subtitle, url, body} = art;
     
-    // if( !art ) {
-    //     return <Redirect to="/" />
-    // }
-
-    const {date, author, subtitle, url} = art;
-    
-    let { body } = art;
-
-
-    useEffect(() => {
-        body = body.split('<br>');
-    }, [body])
-
+  
    
 
 
@@ -53,13 +52,7 @@ export const ArticleScreen = () => {
             />
 
             <div className="main-text">
-                {
-                    (typeof body === 'object')
-                    &&
-                    body.map( p => (
-                        <p> {p} </p>
-                    ))
-                }
+                {body}
             </div>
         </div>
     )

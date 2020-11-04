@@ -58,9 +58,11 @@
 }
 
 .articulos__articulo-titulo {
+    color: rgba($color: black, $alpha: .8);
     font-size: 1.6em;
     font-weight: 600;
-    color: rgba($color: black, $alpha: .8);
+    height: 65px;
+    overflow: hidden;
 
     transition: $transition;
 }
@@ -68,6 +70,8 @@
 .articulos__articulo-descripcion {
     color: $grey-text;
     font-size: 1em;
+    height: 100px;
+    overflow: hidden;
 }
 
 .articulos__paginacion-container {
