@@ -25,12 +25,12 @@ export const ArticleScreen = () => {
     let { body } = art;
 
 
-    useEffect(() => {
-        body = body.split('<br>');
+    // useEffect(() => {
+    //     body = body.split('<br>');
 
-        if(typeof body === 'object'){
-        }
-    }, [body])
+    //     if(typeof body === 'object'){
+    //     }
+    // }, [body])
 
    
 
@@ -56,13 +56,7 @@ export const ArticleScreen = () => {
             />
 
             <div className="main-text">
-                {
-                    (typeof body === 'object')
-                    &&
-                    body.map( p => {
-                        console.log(p);
-                    })
-                }
+                {body}
             </div>
         </div>
     )

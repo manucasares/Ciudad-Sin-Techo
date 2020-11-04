@@ -21,9 +21,15 @@ export const EditArticleScreen = () => {
 
 
 
-    useEffect(() => {
-        body = body.split('<br>');
-    }, [body])
+    // useEffect(() => {
+
+    //     if (typeof body !== 'object'){
+    //         body = body.split('<br>');
+    //     }
+
+
+    //     formValues.body = body;
+    // }, [body])
 
 
 
@@ -69,7 +75,8 @@ export const EditArticleScreen = () => {
                     name="subtitle"
                     value={subtitle}
                     onChange={handleInputChange}
-                ></textarea>
+                >
+                </textarea>
 
                 <div className="article-edit__image">
 

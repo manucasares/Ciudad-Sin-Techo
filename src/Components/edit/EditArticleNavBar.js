@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
@@ -10,12 +10,14 @@ import { getArticleById } from "../../selectors/getArticleById";
 export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
 
     const dispatch = useDispatch();
+    const options = useRef();
 
     const { active, arts } = useSelector( state => state.crud );
-    // const ui = useSelector( state => state.ui );
 
 
-    const { title, subtitle, body, date, author, url } = formValues;
+    const { title, subtitle, date, author, url } = formValues;
+    let { body } = formValues;
+
 
 
     const handleArrow = () => {
@@ -74,6 +76,15 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
             return;
         }
 
+
+        // CAMBIAR ACTIVE PARRAFOS BODY //
+        if (typeof body !== 'object'){
+            formValues.body = body.split('<br>');
+            console.log(formValues);
+            dispatch( setActiveArt(formValues) );
+        }
+
+
         // ACTUALIZAR ARTÍCULO //
         if ( active.id ) {
             dispatch( startUpdateArticle(active) );
@@ -111,6 +122,10 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
                 dispatch( startDeletingArt(active.id) );
             }
         })
+    }
+
+    const handleOptions = () => {
+        options.current.classList.toggle('show-options');
     }
 
 
@@ -151,7 +166,10 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
                 onChange={handleFileChange}
             />
 
-            <div>
+            <div
+                className="article-edit__options"
+                ref={options}
+            >
                 <button
                     className="link"
                     onClick={handlePictureUpload}
@@ -177,6 +195,11 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
                     </button>
                 }
             </div>
+
+            <i
+                className="fa-ellipsis-h fas"
+                onClick={handleOptions}
+            ></i>
         </div>
     );
 };
