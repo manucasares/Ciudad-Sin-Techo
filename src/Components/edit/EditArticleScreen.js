@@ -16,16 +16,7 @@ export const EditArticleScreen = () => {
 
     const [formValues, handleInputChange, reset] = useForm({...active});
     
-    const {title, subtitle, url, id } = formValues;
-    let { body } = formValues;
-
-
-
-    useEffect(() => {
-        body = body.split('<br>');
-    }, [body])
-
-
+    const {title, subtitle, url, id, body } = formValues;
 
 
     // cambiamos el formValues cuando cambia el active
