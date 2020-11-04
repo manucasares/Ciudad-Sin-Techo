@@ -15,21 +15,15 @@ export const ArticleScreen = () => {
 
     const {title} = useParams()
     
+    //Espines para esperar a que carguen los articulos de firebase
     if (!arts.length) {
         return <Spinner />
     } 
-    
 
-
-    // useEffect(() => {
-    //     body = body.split('<br>');
-
-    //     if(typeof body === 'object'){
-    //     }
-    // }, [body])
-
+    //Busca si la url del articulo realmente existe
     const art = getArticleByTitle( arts, transformToString(title) );
 
+    //Error 404, si no existe la página redireccionará 
     if( !art ) {
         return <Redirect to="/" />
     }
@@ -60,12 +54,9 @@ export const ArticleScreen = () => {
                 alt={art.title}
             />
 
-            <textarea
-                className="main-text"
-                value={body}
-                readOnly
-            >
-            </textarea>
+            <p className="main-text" >
+                {body}
+            </p>
         </div>
     )
 }
