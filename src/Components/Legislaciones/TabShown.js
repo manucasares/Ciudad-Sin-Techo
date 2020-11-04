@@ -6,7 +6,7 @@ export const TabShown = ({leyShown}) => {
     return (
         <div className="legislaciones__body">
             <h5 className="legislaciones__body-titulo">
-                {leyShown.titulo}
+                {leyShown.title}
             </h5>
 
             {
@@ -20,10 +20,12 @@ export const TabShown = ({leyShown}) => {
                 ))
             }
 
-            <div className="btn legislaciones__btn d-flex-center">
-                <i className="fas fa-file-pdf"></i>
-                <p>ver texto completo</p>
-            </div>
+            <a href={leyShown.pdf} >
+                <div className="btn legislaciones__btn d-flex-center">
+                    <i className="fas fa-file-pdf"></i>
+                    <p>ver texto completo</p>
+                </div>
+            </a>
         </div>
     )
 }

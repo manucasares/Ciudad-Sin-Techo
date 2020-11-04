@@ -9,7 +9,7 @@ export const leyes = [
             "Crea el servicio social de atención telefónica y servicio móvil de atención social.",
             "Serán objetivos esenciales del programa creado por la presente Ley, la localización, empadronamiento, asistencia médica y alimentaria, y habitacional transitoria, para las personas de todas las edades y sexo, en situación de calle logrando su reinserción social. ",
         ],
-        pdf: null, //url del pdf
+        pdf: 'https://normas.gba.gob.ar/documentos/xqqrGfpx.html' 
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const leyes = [
             "Tiene por objeto la generación de fuentes de trabajo para la población mencionada tanto en el sector público como privado, así como la promoción del desarrollo de proyectos productivos cooperativos, con el objetivo de revertir la situación de calle o riesgo de calle y fomentar la autonomía de las personas. ",
             "Los destinatarios del presente proyecto son las personas mayores de edad en situación de calle y en riesgo a la situación de calle. "
         ],
-        pdf: null, //url del pdf
+        pdf: 'https://drive.google.com/file/d/1fIU9BEqAt1t7C6tqHHYi6tE8RSB5Dh_E/view?usp=sharing'
     },
     {
         id: 3,
@@ -34,6 +34,6 @@ export const leyes = [
         
         
         ,
-        pdf: null, //url del pdf
+        pdf: 'https://drive.google.com/file/d/17H3OnkDmQhqxrNpNjvX-Wn31X7c_IPTw/view?usp=sharing'
     },
 ];

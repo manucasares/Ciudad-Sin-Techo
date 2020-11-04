@@ -1,11 +1,15 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useRef } from 'react';
+import { Link, Redirect, useLocation } from 'react-router-dom';
 
 
 import { scrollContext } from '../../context';
 
 
 export const Navbar = () => {
+
+    const location = useLocation()
+
+    const btnInicio = useRef()
 
     const { nodes } = useContext(scrollContext)
 
@@ -19,7 +23,13 @@ export const Navbar = () => {
     }
 
     const handleScroll = (node) => {
+
+        if (location.pathname !== '/') {
+            btnInicio.current.click();
+        }
+    
         node.scrollIntoView({block: "start", behavior: "smooth"});
+
     }
     
 
@@ -29,7 +39,7 @@ export const Navbar = () => {
         <div className="navbar">
             <nav className="navbar-container">
                 <div className="logo-bars">
-                    <Link to="/">
+                    <Link to="/" ref= {btnInicio}>
                         <img
                             src={require(`../../assets/logo.png`)}
                             alt="logo ciudad sin techo"
