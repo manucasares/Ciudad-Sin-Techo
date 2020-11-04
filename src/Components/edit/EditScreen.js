@@ -22,13 +22,11 @@ export const EditScreen = () => {
             <Sidebar />
 
             <main className="edit__main">
-
                 {
                     (active)
                         ? <EditArticleScreen  />
                         : <NothingSelected  />
                 }
-
             </main>
         </div>
     );

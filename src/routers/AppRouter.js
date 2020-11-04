@@ -71,7 +71,7 @@ export const AppRouter = () => {
                     />
 
                     
-                    <Route path='/' component= {DashboardRoutes} />
+                    <Route path='/' component={DashboardRoutes} />
 
                 </Switch>
             </div>

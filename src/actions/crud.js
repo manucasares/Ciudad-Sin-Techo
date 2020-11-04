@@ -32,13 +32,17 @@ export const startNewArticle = () => {
             author: '',
             subtitle: '',
             body: [],
+            // timestamp: 
         };
 
         dispatch( setActiveArt( newArticle ))
     }
 }
 
+
 export const addNewArticle = ( art ) => {
+
+    art.timeStamp = new Date().getTime();
 
     return ( dispatch ) => {
 
@@ -54,7 +58,6 @@ export const addNewArticle = ( art ) => {
                     
                     dispatch( addArticle( art, res.id ) )
                     dispatch( showSidebar() );
-                    
                 })
 
             })
@@ -76,7 +79,7 @@ export const startLoadingArticles = () => {
 
         const arts = [];
         
-        const arts_snap = await db.collection('Articulos').get();
+        const arts_snap = await db.collection('Articulos').orderBy("timeStamp", "desc").get();
 
         arts_snap.forEach( art => {
             arts.push({id: art.id, ...art.data()})
