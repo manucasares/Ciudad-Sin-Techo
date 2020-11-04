@@ -19,7 +19,6 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
     let { body } = formValues;
 
 
-
     const handleArrow = () => {
 
         const initialActiveState = getArticleById(arts, active.id);
@@ -75,15 +74,6 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
 
             return;
         }
-
-
-        // CAMBIAR ACTIVE PARRAFOS BODY //
-        if (typeof body !== 'object'){
-            formValues.body = body.split('<br>');
-            console.log(formValues);
-            dispatch( setActiveArt(formValues) );
-        }
-
 
         // ACTUALIZAR ARTÍCULO //
         if ( active.id ) {

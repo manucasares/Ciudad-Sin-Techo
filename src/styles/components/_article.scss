@@ -43,6 +43,12 @@
         line-height: 29px;
         text-align: justify;
         margin-bottom: 3em;
+        outline: none;
+        width: 100%;
+        resize: none;
+        border: none;
+        background-color: $grey-background;
+        white-space: pre-line;
     }
 }
 
