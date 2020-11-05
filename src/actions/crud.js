@@ -39,7 +39,6 @@ export const startNewArticle = () => {
     }
 }
 
-
 export const addNewArticle = ( art ) => {
 
     art.timeStamp = new Date().getTime();
