@@ -33,7 +33,7 @@ export const Articulos = () => {
 
     useEffect(() => {
         setNodes( p => ({ ...p, blog: blog.current }));
-    }, [blog])
+    }, [setNodes, blog])
     
     // Logica CurrentArts
     useEffect(() => {    

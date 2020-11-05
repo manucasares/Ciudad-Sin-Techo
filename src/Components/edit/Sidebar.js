@@ -54,15 +54,7 @@ export const Sidebar = () => {
                 setShowBotton({sortUp:true, sortDown: true})
         }
     }, [currentPage, articulos, artsPerPage]);
-
-
-    // const handleLogout = () => {
-    //     dispatch(
-    //         startLogout()
-    //     );
-    // }
-       
-
+    
     return (
         <aside className="edit__sidebar">
             

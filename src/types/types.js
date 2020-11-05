@@ -5,6 +5,8 @@ export const types = {
     uiShowSidebar: '[UI] Show sidebar',
     uiHideSidebar: '[UI] Hide sidebar',
     uiScroll: '[UI] Scroll',
+    uiStartLoading: '[UI] Start Loading',
+    uiFinishLoading: '[UI] Finish Loading',
 
     
     crudAddNewArt: '[CRUD] New art',

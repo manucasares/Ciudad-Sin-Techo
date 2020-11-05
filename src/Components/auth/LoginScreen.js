@@ -1,12 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { startLoginEmailPassword } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 
 export const LoginScreen = () => {
+
     const dispatch = useDispatch();
+    const { loading } = useSelector( state => state.ui );
 
     const [formValues, handleInputChange] = useForm({
         email: 'ciudadsintechofirebase@gmail.com',
@@ -17,6 +19,8 @@ export const LoginScreen = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+
+        console.log('asd');
 
         // VERIFICACION MOMENTANEA 
         if( !email.trim() || !password.trim() ){
@@ -54,7 +58,7 @@ export const LoginScreen = () => {
                 
                 <button 
                     type='submit'
-                    // disabled={ loading }
+                    disabled={ loading }
                     className='login__btn btn'
                 >
                     Login
