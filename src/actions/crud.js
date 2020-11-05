@@ -31,7 +31,7 @@ export const startNewArticle = () => {
             date: `${year}-${month}-${day}`,
             author: '',
             subtitle: '',
-            body: [],
+            body: '',
         };
 
         dispatch( setActiveArt( newArticle ))

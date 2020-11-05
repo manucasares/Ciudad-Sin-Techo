@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -27,19 +27,19 @@ export const Articulos = () => {
         limitPagesShown,
         setLimitPagesShown,
         pagesShown
-    } = usePaginacion(arts, 2, 9);
+    } = usePaginacion(arts, 9, 9);
 
     //Logico Nodes para el Scroll
     useEffect(() => {
         setNodes(p => ({ ...p, blog: blog.current }));
-    }, [blog]);
+    }, [blog, setNodes]);
 
     // Responsive paginación
     useEffect(() => {
         if (window.innerWidth < 500) {
             setLimitPagesShown(6);
         }
-    }, [limitPagesShown]);
+    }, [setLimitPagesShown, limitPagesShown]);
 
     return (
         <div className="articulos__container" ref={blog}>

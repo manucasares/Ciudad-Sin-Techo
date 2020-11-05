@@ -46,7 +46,7 @@ export const usePaginacion = (
     //Logica PagesShown (Paginas que se van a ir mostrar para el usuario)
     useEffect(() => {
         //Si la cantidad de paginas TOTALES, es mayor que el limite de paginas.
-        if (totalPages.length > limitPagesShown + 1) {
+        if (totalPages.length > limitPagesShown) {
             // si la currentPage + Variable es undefined
             // ? si es undefined significa que ya esta "al final" de la paginacion y comenzará a cortar el array de adelante hacia atras
             // : si no es undefined seguirá cortando desde la currentPage hasta la cantidad de paginas que se muestran
