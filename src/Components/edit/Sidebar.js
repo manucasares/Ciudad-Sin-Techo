@@ -25,7 +25,6 @@ export const Sidebar = () => {
 
     //Lógica disabled botones de paginacion
     useEffect(() => {
-        console.log(totalPages.length)
         if (totalPages.length <= 1) {
             setShowBotton({ sortUp: false, sortDown: false });
             return;
@@ -41,13 +40,8 @@ export const Sidebar = () => {
             default:
                 setShowBotton({ sortUp: true, sortDown: true });
         }
-<<<<<<< HEAD
     }, [currentPage, totalPages]);
 
-=======
-    }, [currentPage, articulos, artsPerPage]);
-    
->>>>>>> 249169bab75716c18ecd39e809546dc808bf5e79
     return (
         <aside className="edit__sidebar">
             <Panel />
