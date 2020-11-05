@@ -32,7 +32,6 @@ export const startNewArticle = () => {
             author: '',
             subtitle: '',
             body: [],
-            // timestamp: 
         };
 
         dispatch( setActiveArt( newArticle ))
@@ -40,7 +39,7 @@ export const startNewArticle = () => {
 }
 
 export const addNewArticle = ( art ) => {
-
+    // Agregamos nuestro timeStamp para poder ordenarlo cronologicamente
     art.timeStamp = new Date().getTime();
 
     return ( dispatch ) => {

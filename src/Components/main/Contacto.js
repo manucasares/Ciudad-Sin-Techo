@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { scrollContext } from '../../context'
 import { ContactoForm } from './ContactoForm'
 
-
+//
 
 export const Contacto = () => {
 
@@ -14,7 +14,7 @@ export const Contacto = () => {
 
     useEffect(() => {
         setNodes( p => ({ ...p, contacto: contacto.current }));
-    }, [contacto])
+    }, [setNodes, contacto])
 
 
     return (

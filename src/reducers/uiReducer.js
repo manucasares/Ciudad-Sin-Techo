@@ -1,14 +1,38 @@
 import { types } from "../types/types";
 
+const initialState = {
+    showSidebar: true,
+    loading: false
+}
 
-export const uiReducer = ( state = true, action ) => {
+
+export const uiReducer = ( state = initialState, action ) => {
     
     switch (action.type) {
+
         case types.uiShowSidebar:
-           return true;
+           return {
+                ...state,
+                showSidebar: true
+           };
 
         case types.uiHideSidebar:
-            return false;
+           return {
+                ...state,
+                showSidebar: false
+           };
+
+        case types.uiStartLoading:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case types.uiFinishLoading:
+            return {
+                ...state,
+                loading: false
+            }
 
         default:
             return state;

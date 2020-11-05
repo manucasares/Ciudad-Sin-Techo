@@ -23,7 +23,7 @@ export const QuienesSomos = () => {
     
     useEffect(() => {
         setNodes( p => ({ ...p, qs: quienesSomos.current }));
-    }, [quienesSomos])
+    }, [setNodes, quienesSomos])
     
 
     useEffect(() => {

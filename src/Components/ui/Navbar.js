@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { Link, Redirect, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 import { scrollContext } from '../../context';

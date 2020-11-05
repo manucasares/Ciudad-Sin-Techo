@@ -2,14 +2,19 @@ import { types } from "../types/types"
 import Swal from "sweetalert2";
 
 import { firebase } from '../firebase/firebaseConfig';
+import { finishLoading, startLoading } from "./ui";
 
 
 export const startLoginEmailPassword = ( email, password ) => {
     return ( dispatch ) => {
 
+        dispatch( startLoading() );
+
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then( ({user}) => {
                 dispatch( login(user.uid) )
+                dispatch( finishLoading() );
+
             })
             .catch( () => {
                 Swal.fire(
@@ -17,6 +22,8 @@ export const startLoginEmailPassword = ( email, password ) => {
                     'El usuario o contraseña son incorrectos.',
                     'error'
                 )
+                dispatch( finishLoading() );
+
             })
     }
 }

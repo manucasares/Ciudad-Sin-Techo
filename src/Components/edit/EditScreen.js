@@ -10,13 +10,13 @@ import { Sidebar } from "./Sidebar";
 export const EditScreen = () => {
 
     const { active } = useSelector( state => state.crud );
-    const sidebarState = useSelector( state => state.ui );
+    const { showSidebar } = useSelector( state => state.ui );
 
 
     return (
         <div
             className={
-                sidebarState ? "d-flex-between" : "edit__active d-flex-between"
+                showSidebar ? "d-flex-between" : "edit__active d-flex-between"
             }
         >
             <Sidebar />
