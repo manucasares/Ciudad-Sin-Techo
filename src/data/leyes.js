@@ -3,9 +3,9 @@
 export const leyes = [
     {
         id: 1,
-        title: "Ley 13956: Pograma de Asistencia Integral Para Personas en Situación de Calle",
+        title: "Ley 13956: Programa de Asistencia Integral Para Personas en Situación de Calle",
         body: [
-            "Crea el Pograma de Asistencia Integral Para Personas en Situación de Calle, en el ámbito de la Provincia de Buenos Aires.",
+            "Crea el Programa de Asistencia Integral Para Personas en Situación de Calle, en el ámbito de la Provincia de Buenos Aires.",
             "Crea el servicio social de atención telefónica y servicio móvil de atención social.",
             "Serán objetivos esenciales del programa creado por la presente Ley, la localización, empadronamiento, asistencia médica y alimentaria, y habitacional transitoria, para las personas de todas las edades y sexo, en situación de calle logrando su reinserción social. ",
         ],

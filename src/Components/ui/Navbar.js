@@ -11,14 +11,16 @@ export const Navbar = () => {
 
     const btnInicio = useRef()
 
-    const { nodes } = useContext(scrollContext)
+    const { nodes } = useContext(scrollContext);
 
     const { qs, blog, contacto } = nodes;
 
     const nav_responsive = useRef();
+    const bars = useRef();
 
 
     const handleNavbar = () => {
+        bars.current.classList.toggle('rotate');
         nav_responsive.current.classList.toggle('show');
     }
 
@@ -49,6 +51,7 @@ export const Navbar = () => {
                     <i 
                         onClick={handleNavbar}
                         className="fas fa-bars pointer"
+                        ref={bars}
                     ></i>
                 </div>
     

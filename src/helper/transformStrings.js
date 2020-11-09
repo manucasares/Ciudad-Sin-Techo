@@ -1,6 +1,8 @@
 
 export const transformToUrl = (string) => {
-    return string.replace(/ /g, "-")
+    string = string.replace(/ /g, '-');
+    // string = string.replace(/[¿?/]/g, '');
+    return string;
 }
 
 export const transformToString = (url) => {

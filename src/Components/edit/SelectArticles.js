@@ -49,9 +49,6 @@ export const SelectArticles = React.memo(({ currentArts }) => {
                                     </p>
                                 </div>
 
-                                <div className="edit__article-date-box">
-                                    <span>{date}</span>
-                                </div>
                             </div>
                         )
                 )

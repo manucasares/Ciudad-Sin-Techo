@@ -21,7 +21,7 @@ export const Articulos = () => {
 
     const [articulos, setArticulos] = useState(arts);
     
-    const artsPerPage = 2;
+    const artsPerPage = 9;
     
     const [currentArts, setCurrentArts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,6 +35,7 @@ export const Articulos = () => {
         setNodes( p => ({ ...p, blog: blog.current }));
     }, [setNodes, blog])
     
+
     // Logica CurrentArts
     useEffect(() => {    
         const indexOfLastArt = artsPerPage * currentPage;
@@ -46,15 +47,11 @@ export const Articulos = () => {
 
     }, [setCurrentArts ,artsPerPage, currentPage, articulos])
 
-
     // Logica totalPages
     useEffect(() => {
         setTotalPages([...Array(Math.ceil(articulos.length / artsPerPage)).keys()]);
     }, [artsPerPage, articulos]);
 
-
-
-    
     useEffect(() => {
         if (totalPages.length > 10) {
 
@@ -70,7 +67,6 @@ export const Articulos = () => {
             setPagesShown(totalPages)
         }
     }, [totalPages, currentPage, pagesShownLength])
-
 
     // Responsive paginación
     useEffect(() => {
@@ -104,6 +100,7 @@ export const Articulos = () => {
                                 <Link
                                     to={`/article/${transformToUrl(title)}`}
                                     className="articulos__articulo mb-5 pointer"
+                                    onClick={ () => window.scrollTo(0, 100) }
                                     key={id}
                                 >
                                     <img

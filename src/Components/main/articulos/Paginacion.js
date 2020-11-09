@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { scrollContext } from '../../../context';
 
 export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
 
     // const [pagesShown, setPagesShown] = useState(1);
 
+    const { nodes } = useContext(scrollContext);
+
+    const { blog } = nodes;
+
+
     const handlePrev = () => {
         if(currentPage === 1){
             return;
         }
+        handleScroll();
         setCurrentPage( p => p - 1);
     }
 
@@ -15,6 +22,7 @@ export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
         if(currentPage === pagesShown[ pagesShown.length - 1 ] + 1){
             return;
         }
+        handleScroll();
         setCurrentPage( p => p + 1);
     }
 
@@ -22,8 +30,13 @@ export const Paginacion = ({pagesShown, currentPage, setCurrentPage}) => {
         if(currentPage === page){
             return;
         }
-
+        handleScroll();
         setCurrentPage(page);
+    }
+
+
+    const handleScroll = () => {
+        blog.scrollIntoView({block: "start", behavior: "smooth"});
     }
 
 

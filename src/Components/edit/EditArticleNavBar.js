@@ -146,6 +146,7 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
                     name='author'
                     value={author}
                     onChange={handleInputChange}
+                    autoComplete="off"
                 />
             </div>
 

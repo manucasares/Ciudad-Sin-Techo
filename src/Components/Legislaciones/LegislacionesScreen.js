@@ -15,13 +15,12 @@ export const LegislacionesScreen = () => {
     return (
         <div className="legislaciones__container animate__animated animate__fadeIn">
 
-            <h2 className="legislaciones__titulo">
+            {/* <h2 className="legislaciones__titulo">
                 Legislaciones
-            </h2>
+            </h2> */}
 
             <h3 className="legislaciones__subtitulo">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Maxime, qui!
+                Proyectos de Ley
             </h3>
 
             <div className="legislaciones__info container">

@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
+
 import { useForm } from '../../../hooks/useForm'
 import { getArticlesBySearch } from '../../../selectors/getArticlesBySearch'
+
+
 
 export const Buscador = ({setArticulos, setCurrentPage}) => {
 
     const { arts } = useSelector( state => state.crud );
 
-
+ 
     const [{search}, handleInputChange] = useForm({
         search: ''
     })
@@ -19,7 +23,6 @@ export const Buscador = ({setArticulos, setCurrentPage}) => {
             return;
         }
     
-
         const articlesSearch = getArticlesBySearch(arts, search);
         
         setCurrentPage(1);
