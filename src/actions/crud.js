@@ -25,15 +25,16 @@ export const startNewArticle = () => {
             day = '0' + day;
         }
         
-
         const newArticle = {
             title: '',
             date: `${year}-${month}-${day}`,
             author: '',
             subtitle: '',
             body: '',
+            // url: title,
         };
 
+        
         dispatch( setActiveArt( newArticle ))
     }
 }
@@ -60,13 +61,7 @@ export const addNewArticle = ( art ) => {
 
             })
             .catch( () => {
-
-                Swal.fire(
-                    '',
-                    'Hubo un error al crear el artículo.',
-                    'error'
-                )
-
+                Swal.fire('', 'Hubo un error al crear el artículo.', 'error')
             })
     }
 }
@@ -159,9 +154,9 @@ export const startUploadImg = ( img ) => {
             }
         })
 
-        const url = await imgUpload( img );
+        const imgUrl = await imgUpload( img );
 
-        active.url = url;
+        active.imgUrl = imgUrl;
 
         dispatch( setActiveArt(active) );
 

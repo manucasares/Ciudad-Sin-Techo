@@ -2,18 +2,19 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 
-import { Redirect, useParams } from 'react-router-dom';
-import { transformToString } from '../../helper/transformStrings';
-import { getArticleByTitle } from '../../selectors/getArticleByTitle';
+import { Redirect, useLocation, useParams } from 'react-router-dom';
+import { getArticleByUrl } from '../../selectors/getArticleByUrl';
 import { Spinner } from '../ui/Spinner';
-
 
 
 export const ArticleScreen = () => {
     
+    const location = useLocation();
+
+
     const { arts } = useSelector( state => state.crud );
 
-    const {title} = useParams()
+    const {url} = useParams();
     
     //Espines para esperar a que carguen los articulos de firebase
     if (!arts.length) {
@@ -21,14 +22,14 @@ export const ArticleScreen = () => {
     } 
 
     //Busca si la url del articulo realmente existe
-    const art = getArticleByTitle( arts, transformToString(title) );
+    const art = getArticleByUrl( arts, url );
 
     //Error 404, si no existe la página redireccionará 
     if( !art ) {
         return <Redirect to="/" />
     }
 
-    const {date, author, subtitle, url, body} = art;
+    const {date, author, subtitle, imgUrl, body, title} = art;
     
   
    
@@ -42,7 +43,7 @@ export const ArticleScreen = () => {
                 <p>{author}</p>
             </div>
 
-            <h2 className="titulo mt-5">{art.title}</h2>
+            <h2 className="titulo mt-5">{title}</h2>
 
 
             <p className="subtitulo">
@@ -50,8 +51,8 @@ export const ArticleScreen = () => {
             </p>
 
             <img
-                src={url}
-                alt={art.title}
+                src={imgUrl}
+                alt={title}
             />
 
             <p className="main-text" >

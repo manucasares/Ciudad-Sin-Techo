@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 import { addNewArticle, setActiveArt, startDeletingArt, startUpdateArticle, startUploadImg } from "../../actions/crud";
 import { showSidebar  } from "../../actions/ui";
+import { titleToUrl } from "../../helper/transformStrings";
 import { getArticleById } from "../../selectors/getArticleById";
 
 
@@ -15,7 +16,7 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
     const { active, arts } = useSelector( state => state.crud );
 
 
-    const { title, subtitle, date, author, url } = formValues;
+    const { title, subtitle, date, author } = formValues;
     let { body } = formValues;
 
 
@@ -64,8 +65,11 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
             return;
         }
 
+        console.log(active);
+
         // VALIDACIÓN CAMPOS VACIOS //
-        if( !title.trim() || !subtitle.trim() || !body.trim() || !date.trim() || !author.trim() || !url ) {
+        if( !title.trim() || !subtitle.trim() || !body.trim() || !date.trim() || !author.trim() || !active.imgUrl ) {
+
             Swal.fire(
                 '',
                 'Completa todos los campos.',
@@ -74,6 +78,12 @@ export const EditArticleNavBar = ({ formValues, handleInputChange }) => {
 
             return;
         }
+
+        
+        active.url = titleToUrl(title);
+
+        console.log(active.imgUrl);
+
 
         // ACTUALIZAR ARTÍCULO //
         if ( active.id ) {

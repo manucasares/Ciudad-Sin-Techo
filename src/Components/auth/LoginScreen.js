@@ -20,7 +20,6 @@ export const LoginScreen = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        console.log('asd');
 
         // VERIFICACION MOMENTANEA 
         if( !email.trim() || !password.trim() ){
