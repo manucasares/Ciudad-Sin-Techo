@@ -16,7 +16,7 @@ export const Footer = () => {
                 <div className="t-center">
 
                     <p className="footer__info">Ciudad Sin Techo - 2012</p>
-                    <p className="footer__info">+11 59971822</p>
+                    <p className="footer__info">+11 50354912</p>
                     <p className="footer__info">ciudadsintecho@gmail.com.ar</p>
 
                 </div>

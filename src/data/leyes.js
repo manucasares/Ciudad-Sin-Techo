@@ -13,6 +13,16 @@ export const leyes = [
     },
     {
         id: 2,
+        title: "Ley 3706",
+        body: [
+            "Proteger integralmente y operativizar los derechos de las personas en situación de calle y en riesgo a la situación de calle.",
+            "DERECHO A LA CIUDAD Y AL USO DEL ESPACIO PÚBLICO",
+            "DEL DERECHO AL ACCESO A LOS SERVICIOS SOCIOASISTENCIALES",
+        ],
+        pdf: 'http://www2.cedom.gob.ar/es/legislacion/normas/leyes/ley3706.html'
+    },
+    {
+        id: 3,
         title: "Proyecto de Ley: Programa de Inserción Laboral",
         body: [
             "Créase el Programa de Inserción Laboral (PIL) para personas en situación de calle o en riego de situación de calle en el ámbito de la Ciudad Autónoma de Buenos Aires.",
@@ -22,8 +32,8 @@ export const leyes = [
         pdf: 'https://drive.google.com/file/d/1fIU9BEqAt1t7C6tqHHYi6tE8RSB5Dh_E/view?usp=sharing'
     },
     {
-        id: 3,
-        title: "Proyecto de Ley",
+        id: 4,
+        title: "Proyecto de Ley Nacional",
         body: [
             "La   presente   ley   tiene   por   objeto   proteger, garantizar   integralmente   y   hacer   operativos   los   derechos   de   las personas en situación de calle y en riesgo a la situación de calle. ",
             "Derecho  a  la  dignidad  personal  e  integridad  física.",

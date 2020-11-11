@@ -8,12 +8,13 @@ export const Tabs = ({setLeyShown}) => {
     const opcion1 = useRef();
     const opcion2 = useRef();
     const opcion3 = useRef();
+    const opcion4 = useRef();
 
 
     
 
     const handleShowInfo = index => {
-        const refs = [opcion1, opcion2, opcion3];
+        const refs = [opcion1, opcion2, opcion3, opcion4];
 
         refs.forEach(e => e.current.classList.remove("active"));
 
@@ -39,12 +40,19 @@ export const Tabs = ({setLeyShown}) => {
                 ref={opcion2}
                 onClick={() => handleShowInfo(1)}
             >
-                Programa de Inserción Laboral
+                Ley 3706
             </p>
             <p
                 className="legislaciones__opcion"
                 ref={opcion3}
                 onClick={() => handleShowInfo(2)}
+            >
+                Programa de Inserción Laboral
+            </p>
+            <p
+                className="legislaciones__opcion"
+                ref={opcion4}
+                onClick={() => handleShowInfo(3)}
             >
                 Proyecto de ley
             </p>

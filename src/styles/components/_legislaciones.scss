@@ -1,20 +1,11 @@
-.legislaciones__container {
-    // background: red;
-
-}
-
 .legislaciones__titulo {
+    color: #457B9D;
     font-size: 2.2em;
     font-weight: 700;
     margin-top: 1.2em;
     text-align: center;
 }
 
-.legislaciones__subtitulo {
-    color: rgba($color: #457B9D, $alpha: .6);
-    font-size: 1.1em;
-    text-align: center;
-}
 
 .legislaciones__info {
     background-color: white;
@@ -26,7 +17,7 @@
     background-color: rgba($color: #457B9D, $alpha: .6);
     color: $grey-text;
     font-weight: 600;
-    height: 57px;
+    height: 65px;
     letter-spacing: 2px;
     overflow: hidden;
     padding: 1.2em;

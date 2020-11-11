@@ -30,7 +30,7 @@ export const Contacto = () => {
 
                 <hr />
 
-                <h3> O bien... <a href="https://api.whatsapp.com/send?phone=541131584171&text=holaasd" target="_blank" rel="noopener noreferrer" > chatea con nosotros! </a>
+                <h3> O bien... <a href="https://api.whatsapp.com/send?phone=541150354912&text=" target="_blank" rel="noopener noreferrer" > chatea con nosotros! </a>
                 </h3>
 
             </div>
