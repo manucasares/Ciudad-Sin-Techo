@@ -41,22 +41,26 @@
 @media screen and (max-width: 850px) {
     .quienes-somos {
         padding: 3rem 0 3rem;
-
-
         img {
             width: 100%;
         }
-
         .texto-container {
             position: static;
-            transform: translate(0px, 0) !important;
+            transform: translate(0, 0) !important;
             margin: 0 auto;
             width: 100%;
+            h2 {
+                font-size: 2rem;
+            }
         }
     }
 }
 
 @media screen and (max-width: 400px) {
+    .quienes-somos .texto-container h2{
+        font-size: 1.3rem;
+    }
+
     .quienes-somos img {
         display: none;
     }

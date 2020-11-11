@@ -4,6 +4,7 @@ import {
     Switch,
     Route,
     Redirect,
+    useLocation,
 } from "react-router-dom";
 
 import { Navbar } from "../Components/ui/Navbar";
@@ -13,6 +14,9 @@ import { ArticleScreen } from "../Components/articles/ArticleScreen";
 import { LegislacionesScreen } from "../Components/Legislaciones/LegislacionesScreen";
 
 export const DashboardRoutes = () => {
+
+    const location = useLocation();
+
     return (
         <Router>
             <div className="app-router">
@@ -21,7 +25,7 @@ export const DashboardRoutes = () => {
                 <Switch>
                     <Route
                         exact
-                        path="/article/:title"
+                        path="/article/:url"
                         component={ArticleScreen}
                     />
 

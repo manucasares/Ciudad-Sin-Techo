@@ -1,5 +1,6 @@
 import { types } from "../types/types";
 
+
 const initialState = {
     arts: [],
     active: null

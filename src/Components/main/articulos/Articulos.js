@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 import { scrollContext } from "../../../context";
 
-import { transformToUrl } from "../../../helper/transformStrings";
 import { usePaginacion } from "../../../hooks/usePaginacion";
 import { Buscador } from "./Buscador";
 import { Paginacion } from "./Paginacion";
+
 
 export const Articulos = () => {
 
@@ -41,6 +41,7 @@ export const Articulos = () => {
         }
     }, [setLimitPagesShown, limitPagesShown]);
 
+
     return (
         <div className="articulos__container" ref={blog}>
             <div className="container">
@@ -57,16 +58,16 @@ export const Articulos = () => {
                         (articulos.length === 0)
 
                             ? <p className="articulos__not-results-found"> No se encontraron resultados para la búsqueda. </p>
-                            : currentArts.map(({ title, subtitle, id, url }) => (
+                            : currentArts.map(({ title, subtitle, id, url, imgUrl }) => (
                                 <Link
-                                    to={`/article/${transformToUrl(title)}`}
+                                    to={`/article/${url}`}
                                     className="articulos__articulo mb-5 pointer"
                                     onClick={ () => window.scrollTo(0, 100) }
                                     key={id}
                                 >
                                     <img
                                         className="img"
-                                        src={ url }
+                                        src={ imgUrl }
                                         alt={ title }
                                     />
 

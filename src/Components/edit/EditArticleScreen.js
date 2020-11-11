@@ -13,25 +13,24 @@ export const EditArticleScreen = () => {
     const dispatch = useDispatch();
     const { active } = useSelector( state => state.crud );
 
-
+    
     const [formValues, handleInputChange, reset] = useForm({...active});
     
-    const {title, subtitle, url, id, body } = formValues;
-
+    const {title, subtitle, imgUrl, id, body } = formValues;
+    
 
     // cambiamos el formValues cuando cambia el active
     useEffect( () => {
         // convertimos formValues en active al cambiar de articulo
-        if (id !== active.id || url !== active.url) {
+        if (id !== active.id || imgUrl !== active.imgUrl) {
             reset(active);
         }
 
-    }, [active, formValues, reset, dispatch, id, url] )
+    }, [active, formValues, reset, dispatch, id, imgUrl] )
     
     // cambiamos el active al modificar el formulario
     useEffect( () => {
         dispatch( setActiveArt(formValues) );
-
     }, [formValues, dispatch])
 
 
@@ -66,9 +65,9 @@ export const EditArticleScreen = () => {
                 <div className="article-edit__image">
 
                     {
-                        (url)
+                        (imgUrl)
                             ?   <img
-                                    src={ url }
+                                    src={ imgUrl }
                                     alt={ title }
                                 />
                             :   <p> Imagen no insertada </p>

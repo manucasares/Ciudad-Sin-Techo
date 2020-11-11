@@ -28,7 +28,7 @@ export const SelectArticles = React.memo(({ currentArts }) => {
                 (currentArts.length === 0)
                     ? <p className="edit__article-title "> No se encontraron resultados para la búsqueda. </p>
                     : currentArts.map(
-                        ({ id, date, title, subtitle, url }) => (
+                        ({ id, date, title, subtitle, imgUrl }) => (
                             <div 
                                 key={id} 
                                 className="edit__article d-flex-between"
@@ -37,7 +37,7 @@ export const SelectArticles = React.memo(({ currentArts }) => {
 
                                 <img
                                     className="edit__article-picture"
-                                    src={url}
+                                    src={imgUrl}
                                     alt={title}
                                 />
 
