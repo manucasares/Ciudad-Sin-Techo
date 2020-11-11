@@ -48,9 +48,6 @@ export const ContactoForm = () => {
 
         // EmailJS
 
-        if(true){
-            return;
-        }
         
         emailjs.sendForm('service_lz2no69', 'template_xdwjwgv', e.target, 'user_gndPnP4XXkXKL54I8d0bh')
             .then(() => {
@@ -69,9 +66,7 @@ export const ContactoForm = () => {
 
         removeWarningClass();
         reset();
-
     }
-
 
     return (
         <>
