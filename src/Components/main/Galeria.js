@@ -10,7 +10,7 @@ export const Galeria = () => {
             {
                 galeria.map( ({ id, img, alt }) => (
                     <img
-                        src={require(`../../assets/${img}.jpg`)}
+                        src={require(`../../assets/${img}`)}
                         alt={alt}
                         key={id}
                     />

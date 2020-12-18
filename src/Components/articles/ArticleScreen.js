@@ -2,15 +2,13 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 
-import { Redirect, useLocation, useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { getArticleByUrl } from '../../selectors/getArticleByUrl';
 import { Spinner } from '../ui/Spinner';
 
 
 export const ArticleScreen = () => {
     
-    const location = useLocation();
-
 
     const { arts } = useSelector( state => state.crud );
 
@@ -32,9 +30,6 @@ export const ArticleScreen = () => {
     const {date, author, subtitle, imgUrl, body, title} = art;
     
   
-   
-
-
     return (
         <div className="article container animate__animated animate__fadeIn">
             <div className="fecha-autor d-flex-between">

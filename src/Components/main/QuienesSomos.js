@@ -14,7 +14,7 @@ export const QuienesSomos = () => {
 
 
     // efecto parallax
-    const [offsetY, setOffsetY] = useState(0);
+    const [ offsetY, setOffsetY ] = useState(0);
 
     const handleScroll = () => {
         setOffsetY(window.pageYOffset);
@@ -44,7 +44,7 @@ export const QuienesSomos = () => {
             <div className="container">
 
                 <img
-                    src={require(`../../assets/foto5.jpg`)}
+                    src={require(`../../assets/foto11.jpg`)}
                     alt="ciudad sin techo agrupacion"
                 />
     
