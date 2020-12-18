@@ -3,9 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect,
-    useLocation,
+    Redirect
 } from "react-router-dom";
+
 
 import { Navbar } from "../Components/ui/Navbar";
 import { Footer } from "../Components/ui/Footer";
@@ -13,9 +13,8 @@ import { MainScreen } from "../Components/main/MainScreen";
 import { ArticleScreen } from "../Components/articles/ArticleScreen";
 import { LegislacionesScreen } from "../Components/Legislaciones/LegislacionesScreen";
 
-export const DashboardRoutes = () => {
 
-    const location = useLocation();
+export const DashboardRoutes = () => {
 
     return (
         <Router>
